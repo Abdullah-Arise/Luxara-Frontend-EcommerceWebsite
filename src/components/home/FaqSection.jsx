@@ -97,7 +97,7 @@ const FaqSection = () => {
                 <span
                   className={`shrink-0 rounded-full border p-2 transition-all duration-300 ${
                     openIndex === index
-                      ? 'rotate-180 border-white/20 bg-white text-black'
+                      ? 'rotate-180 border-amber-400/40 bg-amber-400 text-black'
                       : 'border-white/10 bg-white/5 text-white group-hover:border-white/20 group-hover:bg-white/10'
                   }`}
                 >

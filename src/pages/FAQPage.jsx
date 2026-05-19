@@ -16,16 +16,16 @@
 // =============================================
 
 import React from 'react';
-import AnnouncementBar from '../components/AnnouncementBar';
+import AnnouncementBar from '../components/AnnouncementBar-Premium';
 import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
-import WhatsAppButton from '../components/WhatsAppButton';
+import Footer from '../components/Footer-Premium';
+import WhatsAppButton from '../components/WhatsAppButton-Premium';
 import FAQHero from '../components/faq/FAQHero';        // ← apni file mein aa gaya
 import FaqSection from '../components/home/FaqSection'; // ← home mein hai, dono pages use karte hain
 
 const FAQPage = () => {
   return (
-    <div className="bg-white">
+    <div className="lux-surface">
       <AnnouncementBar />
       <Navbar />
       <FAQHero />

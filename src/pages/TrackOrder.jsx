@@ -18,16 +18,16 @@
 // =============================================
 
 import React from 'react';
-import AnnouncementBar from '../components/AnnouncementBar';
+import AnnouncementBar from '../components/AnnouncementBar-Premium';
 import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
-import WhatsAppButton from '../components/WhatsAppButton';
+import Footer from '../components/Footer-Premium';
+import WhatsAppButton from '../components/WhatsAppButton-Premium';
 import TrackHero from '../components/track/TrackHero';   // ← apni file mein aa gaya
 import TrackForm from '../components/track/TrackForm';
 
 const TrackOrder = () => {
   return (
-    <div className="bg-white">
+    <div className="lux-surface">
       <AnnouncementBar />
       <Navbar />
       <TrackHero />

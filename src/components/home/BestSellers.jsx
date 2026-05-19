@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ShoppingBag, Eye, Check, ArrowRight } from 'lucide-react';
 import { useCart } from '../../context/CartContext';
-import QuickView from '../QuickView';
+import QuickView from '../QuickView-Premium';
 import { BEST_SELLERS } from '../../data/products';
 
 const containerVariants = {
@@ -54,6 +54,8 @@ const ProductCard = ({ product, onQuickView }) => {
           <img
             src={product.image}
             alt={product.name}
+            loading="lazy"
+            decoding="async"
             className="h-full w-full object-cover transition duration-700 ease-in-out group-hover:scale-110"
           />
 
@@ -66,7 +68,7 @@ const ProductCard = ({ product, onQuickView }) => {
               className={`flex items-center gap-2 rounded-full border px-4 py-3 text-[11px] font-semibold uppercase tracking-[0.22em] transition-all shadow-lg ${
                 added
                   ? 'border-emerald-400/30 bg-emerald-500 text-white'
-                  : 'border-white/10 bg-white text-neutral-900 hover:bg-amber-400 hover:text-neutral-950'
+                    : 'border-amber-400/30 bg-[#d6b46a] text-black hover:bg-[#e0c07a]'
               }`}
             >
               {added ? <Check size={16} /> : <ShoppingBag size={16} />}
@@ -78,7 +80,7 @@ const ProductCard = ({ product, onQuickView }) => {
                 onQuickView(product);
               }}
               title="Quick View"
-              className="rounded-full border border-white/10 bg-black/50 p-3 text-white backdrop-blur-md transition-all hover:bg-white hover:text-neutral-900 shadow-lg"
+              className="rounded-full border border-white/10 bg-black/50 p-3 text-white backdrop-blur-md transition-all hover:bg-amber-400 hover:text-black shadow-lg"
             >
               <Eye size={16} />
             </button>
@@ -142,7 +144,7 @@ const BestSellers = () => {
 
             <a
               href="/shop"
-              className="inline-flex items-center gap-2 self-start rounded-full border border-white/10 bg-white/5 px-5 py-3 text-[11px] font-semibold uppercase tracking-[0.28em] text-white transition-all duration-300 hover:border-amber-300/30 hover:bg-white hover:text-neutral-950 hover:shadow-[0_0_30px_rgba(212,175,55,0.16)] backdrop-blur-md md:self-auto"
+              className="inline-flex items-center gap-2 self-start rounded-full border border-white/10 bg-white/5 px-5 py-3 text-[11px] font-semibold uppercase tracking-[0.28em] text-white transition-all duration-300 hover:border-amber-300/30 hover:bg-amber-400 hover:text-black hover:shadow-[0_0_30px_rgba(212,175,55,0.16)] backdrop-blur-md md:self-auto"
             >
               View All
               <ArrowRight size={15} />

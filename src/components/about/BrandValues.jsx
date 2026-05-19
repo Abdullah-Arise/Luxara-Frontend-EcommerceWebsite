@@ -26,28 +26,28 @@ const values = [
 
 const BrandValues = () => {
   return (
-    <section className="py-24 bg-[#fafaf8]">
+    <section className="py-24 bg-neutral-950">
       <div className="max-w-7xl mx-auto px-6">
 
         <div className="text-center mb-16">
-          <p className="text-yellow-600 text-[10px] uppercase tracking-[0.3em] font-medium mb-3">
+          <p className="text-amber-400 text-[10px] uppercase tracking-[0.3em] font-medium mb-3">
             What We Stand For
           </p>
-          <h2 className="font-serif text-4xl text-gray-900 font-light">
-            The Luxara <span className="italic text-yellow-600">Promise</span>
+          <h2 className="font-serif text-4xl text-white font-light">
+            The Luxara <span className="italic text-amber-300">Promise</span>
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-1 bg-gray-100">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {values.map((val, i) => (
-            <div key={i} className="bg-white p-10 group hover:bg-[#0f0d0b] transition-colors duration-300">
-              <div className="text-yellow-600 mb-6 group-hover:text-yellow-500 transition-colors">
+            <div key={i} className="rounded-2xl border border-white/10 bg-white/5 p-10 group transition-colors duration-300 backdrop-blur-md hover:border-amber-400/20 hover:bg-white/10">
+              <div className="text-amber-300 mb-6 group-hover:text-amber-200 transition-colors">
                 {val.icon}
               </div>
-              <h3 className="font-serif text-xl text-gray-900 group-hover:text-white mb-3 transition-colors">
+              <h3 className="font-serif text-xl text-white mb-3 transition-colors">
                 {val.title}
               </h3>
-              <p className="text-sm text-gray-400 leading-relaxed group-hover:text-gray-300 transition-colors">
+              <p className="text-sm text-neutral-400 leading-relaxed transition-colors">
                 {val.desc}
               </p>
             </div>

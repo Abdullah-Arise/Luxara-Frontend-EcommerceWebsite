@@ -105,6 +105,8 @@ const Categories = () => {
                   <img
                     src={cat.image}
                     alt={cat.title}
+                    loading="lazy"
+                    decoding="async"
                     className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
                 </div>

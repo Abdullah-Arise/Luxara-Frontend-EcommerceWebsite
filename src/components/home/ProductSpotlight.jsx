@@ -72,7 +72,7 @@ const ProductSpotlight = () => {
             <motion.div whileHover={{ scale: 1.02, y: -5 }} whileTap={{ scale: 0.98 }}>
               <Link
                 to="/shop"
-                className="group inline-flex items-center gap-3 rounded-full border border-white/10 bg-white px-7 py-3.5 text-sm font-medium uppercase tracking-[0.22em] text-black transition-all duration-300 hover:bg-amber-400 hover:text-black shadow-[0_10px_35px_rgba(255,255,255,0.1)]"
+                className="group inline-flex items-center gap-3 rounded-full border border-amber-400/30 bg-[#d6b46a] px-7 py-3.5 text-sm font-medium uppercase tracking-[0.22em] text-black transition-all duration-300 hover:bg-[#e0c07a] shadow-[0_10px_35px_rgba(214,180,106,0.25)]"
               >
                 Explore Now
                 <ArrowRight

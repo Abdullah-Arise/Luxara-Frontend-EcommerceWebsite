@@ -1,1 +1,78 @@
 @import "tailwindcss";
+
+@theme {
+	--color-lux-bg: #050507;
+	--color-lux-surface: #0b0b10;
+	--color-lux-panel: #111118;
+	--color-lux-text: #f5f1ea;
+	--color-lux-muted: #b5aea6;
+	--color-lux-gold: #d6b46a;
+	--color-lux-gold-strong: #f0d188;
+	--color-lux-border: rgba(255, 255, 255, 0.08);
+	--color-lux-border-strong: rgba(255, 255, 255, 0.16);
+	--font-sans: "Manrope", sans-serif;
+	--font-serif: "Cormorant Garamond", serif;
+}
+
+@layer base {
+	:root {
+		color-scheme: dark;
+		--lux-bg: #050507;
+		--lux-surface: #0b0b10;
+		--lux-panel: #111118;
+		--lux-panel-2: #0f0f14;
+		--lux-text: #f5f1ea;
+		--lux-muted: #b5aea6;
+		--lux-muted-2: #8d877f;
+		--lux-gold: #d6b46a;
+		--lux-gold-strong: #f0d188;
+		--lux-gold-soft: rgba(214, 180, 106, 0.14);
+		--lux-border: rgba(255, 255, 255, 0.08);
+		--lux-border-strong: rgba(255, 255, 255, 0.16);
+		--lux-shadow: 0 40px 120px rgba(0, 0, 0, 0.65);
+		--lux-glow: 0 0 40px rgba(214, 180, 106, 0.15);
+		--lux-ease: cubic-bezier(0.22, 1, 0.36, 1);
+	}
+
+	html, body {
+		height: 100%;
+	}
+
+	body {
+		font-family: var(--font-sans);
+		background: var(--lux-bg);
+		color: var(--lux-text);
+		text-rendering: optimizeLegibility;
+		-webkit-font-smoothing: antialiased;
+	}
+
+	::selection {
+		background: rgba(214, 180, 106, 0.35);
+		color: #0b0b10;
+	}
+}
+
+@layer utilities {
+	.lux-surface { background: var(--lux-bg); }
+	.lux-panel { background: var(--lux-panel); }
+	.lux-panel-2 { background: var(--lux-panel-2); }
+	.lux-glass {
+		background: rgba(255, 255, 255, 0.04);
+		border: 1px solid var(--lux-border);
+		backdrop-filter: blur(14px);
+	}
+	.lux-border { border-color: var(--lux-border); }
+	.lux-border-strong { border-color: var(--lux-border-strong); }
+	.lux-text { color: var(--lux-text); }
+	.lux-muted { color: var(--lux-muted); }
+	.lux-muted-2 { color: var(--lux-muted-2); }
+	.lux-gold { color: var(--lux-gold); }
+	.lux-gold-strong { color: var(--lux-gold-strong); }
+	.lux-shadow { box-shadow: var(--lux-shadow); }
+	.lux-glow { box-shadow: var(--lux-glow); }
+	.lux-noise {
+		background-image: radial-gradient(circle at 20% 20%, rgba(214, 180, 106, 0.08), transparent 40%),
+			radial-gradient(circle at 80% 10%, rgba(255, 255, 255, 0.04), transparent 35%),
+			radial-gradient(circle at 10% 80%, rgba(255, 255, 255, 0.03), transparent 35%);
+	}
+}

@@ -2,49 +2,51 @@ import React from 'react';
 
 const FounderNote = () => {
   return (
-    <section className="py-24 bg-white">
+    <section className="py-24 bg-neutral-950">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
 
           {/* Image */}
           <div className="relative">
-            <div className="aspect-[4/5] overflow-hidden bg-gray-100">
+            <div className="aspect-[4/5] overflow-hidden bg-neutral-900">
               <img
                 src="https://images.unsplash.com/photo-1615655406736-b37c4fabf923?q=80&w=1000&auto=format&fit=crop"
                 alt="Luxara Founder"
+                loading="lazy"
+                decoding="async"
                 className="w-full h-full object-cover"
               />
             </div>
             {/* Gold border decoration */}
-            <div className="absolute -bottom-4 -right-4 w-full h-full border border-yellow-600/30 -z-10 hidden md:block" />
+            <div className="absolute -bottom-4 -right-4 w-full h-full border border-amber-400/30 -z-10 hidden md:block" />
           </div>
 
           {/* Text */}
           <div className="space-y-6">
-            <p className="text-yellow-600 text-[10px] uppercase tracking-[0.3em] font-medium">
+            <p className="text-amber-300 text-[10px] uppercase tracking-[0.3em] font-medium">
               A Note from the Founder
             </p>
 
-            <h2 className="font-serif text-4xl text-gray-900 font-light leading-tight">
+            <h2 className="font-serif text-4xl text-white font-light leading-tight">
               We started with beads.<br />
               <span className="italic">We evolved with purpose.</span>
             </h2>
 
-            <p className="text-gray-500 leading-relaxed text-[15px]">
+            <p className="text-neutral-400 leading-relaxed text-[15px]">
               Luxara started as a small handmade bead bracelet brand — made with love, sold with passion. Our customers loved the designs. But the metal turned. The shine faded. And that broke our hearts.
             </p>
 
-            <p className="text-gray-500 leading-relaxed text-[15px]">
+            <p className="text-neutral-400 leading-relaxed text-[15px]">
               So we rebuilt. Every piece is now crafted in Stainless Steel 316L — the same grade used in surgical instruments. Coated with PVD gold that bonds permanently to the surface. No fading. No tarnish. No compromise.
             </p>
 
-            <p className="text-gray-500 leading-relaxed text-[15px]">
+            <p className="text-neutral-400 leading-relaxed text-[15px]">
               This is jewelry made for Pakistani women who deserve both beauty and durability — without paying imported prices.
             </p>
 
-            <div className="pt-4 border-t border-gray-100">
-              <p className="font-serif text-2xl text-gray-900 italic">Abdullah</p>
-              <p className="text-xs text-gray-400 uppercase tracking-widest mt-1">Founder, Luxara</p>
+            <div className="pt-4 border-t border-white/10">
+              <p className="font-serif text-2xl text-white italic">Abdullah</p>
+              <p className="text-xs text-neutral-500 uppercase tracking-widest mt-1">Founder, Luxara</p>
             </div>
           </div>
 

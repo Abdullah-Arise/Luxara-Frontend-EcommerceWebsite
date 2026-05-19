@@ -26,7 +26,7 @@ const BrandLegacyCTA = () => {
     <div className="bg-[#0f0d0b] py-16 px-4 text-center">
 
       {/* Label */}
-      <p className="text-yellow-500 text-[10px] uppercase tracking-[0.3em] mb-3">
+      <p className="text-amber-400 text-[10px] uppercase tracking-[0.3em] mb-3">
         The Collection
       </p>
 
@@ -36,15 +36,15 @@ const BrandLegacyCTA = () => {
       </h2>
 
       {/* Description */}
-      <p className="text-gray-400 text-sm mb-8 max-w-sm mx-auto">
+      <p className="text-neutral-400 text-sm mb-8 max-w-sm mx-auto">
         Every piece tells this story. Anti-tarnish. Waterproof. Made to last.
       </p>
 
       {/* Button — Link component from react-router-dom, to="/shop" pe jaata hai */}
       <Link
         to="/shop"
-        className="inline-flex items-center gap-2 bg-yellow-600 text-white px-10 py-4
-                   text-[11px] uppercase tracking-widest hover:bg-yellow-500 transition-colors"
+        className="inline-flex items-center gap-2 bg-[#d6b46a] text-black px-10 py-4
+             text-[11px] uppercase tracking-widest hover:bg-[#e0c07a] transition-colors"
       >
         Shop All Jewelry <ArrowRight size={14} />
       </Link>

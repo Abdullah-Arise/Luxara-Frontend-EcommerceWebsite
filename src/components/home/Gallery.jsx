@@ -70,7 +70,7 @@ const Gallery = () => {
             </p>
           </div>
 
-          <button className="inline-flex items-center gap-2 self-start rounded-full border border-white/10 bg-white/5 px-5 py-3 text-[11px] font-semibold uppercase tracking-[0.28em] text-white transition-all duration-300 hover:border-amber-300/30 hover:bg-white hover:text-neutral-950 hover:shadow-[0_0_30px_rgba(212,175,55,0.16)] backdrop-blur-md md:self-auto">
+          <button className="inline-flex items-center gap-2 self-start rounded-full border border-white/10 bg-white/5 px-5 py-3 text-[11px] font-semibold uppercase tracking-[0.28em] text-white transition-all duration-300 hover:border-amber-300/30 hover:bg-amber-400 hover:text-black hover:shadow-[0_0_30px_rgba(212,175,55,0.16)] backdrop-blur-md md:self-auto">
             <Instagram size={16} /> Follow Us <ArrowUpRight size={14} />
           </button>
         </motion.div>
@@ -93,6 +93,8 @@ const Gallery = () => {
               <img
                 src={item.src}
                 alt="Luxara gallery"
+                loading="lazy"
+                decoding="async"
                 className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-70 transition-all duration-300 group-hover:opacity-100" />

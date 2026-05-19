@@ -46,7 +46,7 @@ const GiftCard = ({ product, onQuickView }) => {
     <div className="group">
 
       {/* ── IMAGE AREA ── */}
-      <div className="relative overflow-hidden aspect-[3/4] mb-4 bg-gray-50">
+      <div className="relative overflow-hidden aspect-[3/4] mb-4 bg-neutral-900">
 
         {/* ── GIFT SET BADGE (top-left) ──
             Kala background, yellow "Gift Set" text + Gift icon
@@ -69,6 +69,8 @@ const GiftCard = ({ product, onQuickView }) => {
         <img
           src={product.image}
           alt={product.name}
+          loading="lazy"
+          decoding="async"
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 cursor-pointer"
         />
 
@@ -84,7 +86,7 @@ const GiftCard = ({ product, onQuickView }) => {
                        transform translate-y-2 group-hover:translate-y-0
                        ${added
                          ? 'bg-green-500 text-white'
-                         : 'bg-white text-gray-900 hover:bg-yellow-600 hover:text-white'
+                         : 'bg-[#d6b46a] text-black hover:bg-[#e0c07a]'
                        }`}
           >
             {added
@@ -96,7 +98,7 @@ const GiftCard = ({ product, onQuickView }) => {
           {/* Quick View */}
           <button
             onClick={() => onQuickView(product)}
-            className="bg-white/90 text-gray-700 p-2.5 hover:bg-black hover:text-white
+            className="bg-black/70 text-neutral-200 p-2.5 hover:bg-amber-400 hover:text-black
                        transition-all duration-200 transform translate-y-2 group-hover:translate-y-0 delay-75"
           >
             <Eye size={16} />
@@ -109,29 +111,29 @@ const GiftCard = ({ product, onQuickView }) => {
       <div>
 
         {/* Finish (Gold / Silver / Rose Gold) */}
-        <p className="text-[10px] uppercase tracking-widest text-yellow-600 font-medium mb-1">
+        <p className="text-[10px] uppercase tracking-widest text-amber-300 font-medium mb-1">
           {product.finish} Finish
         </p>
 
         {/* Product Name */}
-        <h3 className="font-serif text-lg font-medium text-gray-900 group-hover:text-yellow-600 transition-colors mb-2">
+        <h3 className="font-serif text-lg font-medium text-white group-hover:text-amber-300 transition-colors mb-2">
           {product.name}
         </h3>
 
         {/* Description */}
-        <p className="text-xs text-gray-400 mb-3 leading-relaxed">
+        <p className="text-xs text-neutral-400 mb-3 leading-relaxed">
           {product.description}
         </p>
 
         {/* Price, Original Price, aur Savings */}
         <div className="flex items-center gap-3 flex-wrap">
 
-          <span className="font-semibold text-gray-900">
+          <span className="font-semibold text-white">
             Rs. {product.price.toLocaleString()}
           </span>
 
           {product.originalPrice && (
-            <span className="text-gray-400 text-xs line-through">
+            <span className="text-neutral-500 text-xs line-through">
               Rs. {product.originalPrice.toLocaleString()}
             </span>
           )}

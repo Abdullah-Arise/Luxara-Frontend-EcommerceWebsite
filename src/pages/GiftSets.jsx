@@ -16,10 +16,10 @@
 
 import React, { useState } from 'react';
 import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
-import AnnouncementBar from '../components/AnnouncementBar';
-import WhatsAppButton from '../components/WhatsAppButton';
-import QuickView from '../components/QuickView';
+import Footer from '../components/Footer-Premium';
+import AnnouncementBar from '../components/AnnouncementBar-Premium';
+import WhatsAppButton from '../components/WhatsAppButton-Premium';
+import QuickView from '../components/QuickView-Premium';
 import GiftCard from '../components/shop/GiftCard'; // ← ab yahan se aa raha hai
 import { GIFT_SETS } from '../data/products';
 
@@ -30,7 +30,7 @@ const GiftSets = () => {
   const [quickProduct, setQuickProduct] = useState(null);
 
   return (
-    <div className="bg-white min-h-screen">
+    <div className="lux-surface min-h-screen">
       <AnnouncementBar />
       <Navbar />
 
@@ -46,7 +46,7 @@ const GiftSets = () => {
             Luxara <span className="italic text-yellow-400">Gift Sets</span>
           </h1>
 
-          <p className="text-gray-400 text-sm max-w-md leading-relaxed">
+          <p className="text-neutral-400 text-sm max-w-md leading-relaxed">
             Beautifully packaged sets for birthdays, anniversaries, and Eid.
             Everything inside a premium Luxara gift box — ready to give.
           </p>
@@ -55,7 +55,7 @@ const GiftSets = () => {
       </div>
 
       {/* ── WHY GIFT — 3 reasons strip ── */}
-      <div className="bg-[#fafaf8] border-b border-gray-100 py-10">
+      <div className="bg-neutral-950 border-b border-white/5 py-10">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
@@ -78,8 +78,8 @@ const GiftSets = () => {
               <div key={i} className="flex items-start gap-4">
                 <span className="text-2xl">{item.icon}</span>
                 <div>
-                  <h3 className="font-medium text-gray-900 mb-1">{item.title}</h3>
-                  <p className="text-sm text-gray-400 leading-relaxed">{item.desc}</p>
+                  <h3 className="font-medium text-white mb-1">{item.title}</h3>
+                  <p className="text-sm text-neutral-400 leading-relaxed">{item.desc}</p>
                 </div>
               </div>
             ))}
@@ -92,10 +92,10 @@ const GiftSets = () => {
 
         {/* Header row */}
         <div className="flex items-center justify-between mb-10">
-          <p className="text-xs text-gray-400 uppercase tracking-widest">
+          <p className="text-xs text-neutral-400 uppercase tracking-widest">
             {GIFT_SETS.length} gift sets available
           </p>
-          <span className="text-[10px] text-gray-400 uppercase tracking-widest">
+          <span className="text-[10px] text-neutral-400 uppercase tracking-widest">
             Free gift wrapping included
           </span>
         </div>
@@ -124,7 +124,7 @@ const GiftSets = () => {
           Build a Custom Gift Set
         </h2>
 
-        <p className="text-gray-400 text-sm mb-7 max-w-sm mx-auto leading-relaxed">
+        <p className="text-neutral-400 text-sm mb-7 max-w-sm mx-auto leading-relaxed">
           Tell us your budget and who it's for — we'll put together the perfect set for you.
         </p>
 
@@ -135,8 +135,8 @@ const GiftSets = () => {
             );
             window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`, '_blank');
           }}
-          className="inline-flex items-center gap-2 bg-yellow-600 text-white px-8 py-3.5
-                     text-[11px] uppercase tracking-widest hover:bg-yellow-500 transition-colors"
+          className="inline-flex items-center gap-2 bg-amber-400 text-black px-8 py-3.5
+                     text-[11px] uppercase tracking-widest hover:bg-amber-300 transition-colors"
         >
           {/* WhatsApp SVG Icon */}
           <svg viewBox="0 0 24 24" fill="white" width="16" height="16">

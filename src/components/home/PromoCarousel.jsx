@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
@@ -44,20 +44,20 @@ const contentVariants = {
 const PromoCarousel = () => {
   const [current, setCurrent] = useState(0);
 
+  const prevSlide = () => {
+    setCurrent(current === 0 ? slides.length - 1 : current - 1);
+  };
+
+  const nextSlide = useCallback(() => {
+    setCurrent(current === slides.length - 1 ? 0 : current + 1);
+  }, [current]);
+
   useEffect(() => {
     const timer = setInterval(() => {
       nextSlide();
     }, 5000);
     return () => clearInterval(timer);
-  }, [current]);
-
-  const prevSlide = () => {
-    setCurrent(current === 0 ? slides.length - 1 : current - 1);
-  };
-
-  const nextSlide = () => {
-    setCurrent(current === slides.length - 1 ? 0 : current + 1);
-  };
+  }, [nextSlide]);
 
   return (
     <motion.section
@@ -82,6 +82,8 @@ const PromoCarousel = () => {
                 <img
                   src={slides[current].image}
                   alt={slides[current].title}
+                  loading="lazy"
+                  decoding="async"
                   className="h-full w-full object-cover"
                 />
                 <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(10,10,10,0.88)_0%,rgba(10,10,10,0.58)_42%,rgba(10,10,10,0.3)_72%,rgba(10,10,10,0.62)_100%)]" />
@@ -117,14 +119,14 @@ const PromoCarousel = () => {
 
             <button
               onClick={prevSlide}
-              className="absolute left-4 top-1/2 z-20 hidden -translate-y-1/2 rounded-full border border-white/10 bg-white/10 p-3 text-white backdrop-blur-md transition-all duration-300 hover:bg-white hover:text-black group-hover:opacity-100 md:flex md:opacity-0 shadow-[0_10px_30px_rgba(0,0,0,0.35)]"
+              className="absolute left-4 top-1/2 z-20 hidden -translate-y-1/2 rounded-full border border-white/10 bg-white/10 p-3 text-white backdrop-blur-md transition-all duration-300 hover:bg-amber-400 hover:text-black group-hover:opacity-100 md:flex md:opacity-0 shadow-[0_10px_30px_rgba(0,0,0,0.35)]"
             >
               <ChevronLeft size={22} />
             </button>
 
             <button
               onClick={nextSlide}
-              className="absolute right-4 top-1/2 z-20 hidden -translate-y-1/2 rounded-full border border-white/10 bg-white/10 p-3 text-white backdrop-blur-md transition-all duration-300 hover:bg-white hover:text-black group-hover:opacity-100 md:flex md:opacity-0 shadow-[0_10px_30px_rgba(0,0,0,0.35)]"
+              className="absolute right-4 top-1/2 z-20 hidden -translate-y-1/2 rounded-full border border-white/10 bg-white/10 p-3 text-white backdrop-blur-md transition-all duration-300 hover:bg-amber-400 hover:text-black group-hover:opacity-100 md:flex md:opacity-0 shadow-[0_10px_30px_rgba(0,0,0,0.35)]"
             >
               <ChevronRight size={22} />
             </button>
@@ -135,7 +137,7 @@ const PromoCarousel = () => {
                   key={index}
                   onClick={() => setCurrent(index)}
                   className={`h-2 rounded-full transition-all duration-300 ${
-                    index === current ? 'w-8 bg-amber-400 shadow-[0_0_20px_rgba(251,191,36,0.8)]' : 'w-2 bg-white/40 hover:bg-white'
+                    index === current ? 'w-8 bg-amber-400 shadow-[0_0_20px_rgba(251,191,36,0.8)]' : 'w-2 bg-white/10 hover:bg-amber-300'
                   }`}
                 />
               ))}

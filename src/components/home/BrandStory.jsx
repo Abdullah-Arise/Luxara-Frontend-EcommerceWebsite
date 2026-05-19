@@ -27,15 +27,17 @@ const BrandStory = () => {
             <img
               src="https://images.unsplash.com/photo-1573408301185-9146fe634ad0?q=80&w=2075&auto=format&fit=crop"
               alt="Making Process"
+              loading="lazy"
+              decoding="async"
               className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/25 to-black/10 transition-colors duration-500 group-hover:from-black/75 group-hover:via-black/30 group-hover:to-black/20" />
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.18),transparent_45%)] opacity-60" />
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="relative">
-                <div className="absolute inset-0 rounded-full bg-white/30 blur-xl" />
-                <div className="absolute inset-0 rounded-full bg-white opacity-20 animate-ping" />
-                <div className="relative flex h-20 w-20 items-center justify-center rounded-full border border-white/30 bg-white/10 backdrop-blur-xl transition-all duration-500 group-hover:bg-white group-hover:scale-110">
+                <div className="absolute inset-0 rounded-full bg-amber-200/20 blur-xl" />
+                <div className="absolute inset-0 rounded-full bg-amber-200 opacity-20 animate-ping" />
+                <div className="relative flex h-20 w-20 items-center justify-center rounded-full border border-white/30 bg-white/10 backdrop-blur-xl transition-all duration-500 group-hover:bg-amber-400 group-hover:scale-110">
                   <Play className="ml-1 h-8 w-8 fill-white text-white transition-colors group-hover:fill-black group-hover:text-black" />
                 </div>
               </div>
@@ -66,7 +68,7 @@ const BrandStory = () => {
               <motion.div whileHover={{ scale: 1.02, y: -5 }} transition={{ duration: 0.25 }}>
                 <Link
                   to="/about"
-                  className="inline-flex items-center justify-center rounded-full border border-white/10 bg-white px-8 py-4 text-[11px] font-semibold uppercase tracking-[0.3em] text-black shadow-[0_12px_40px_rgba(255,255,255,0.12)] transition-all duration-300 hover:bg-neutral-100"
+                  className="inline-flex items-center justify-center rounded-full border border-amber-400/30 bg-[#d6b46a] px-8 py-4 text-[11px] font-semibold uppercase tracking-[0.3em] text-black shadow-[0_12px_40px_rgba(214,180,106,0.25)] transition-all duration-300 hover:bg-[#e0c07a]"
                 >
                   Read Our Journey
                 </Link>

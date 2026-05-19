@@ -41,7 +41,7 @@ const BrandChapter = ({
   imageLeft = false,    // true = image left side pe hogi
 }) => {
   return (
-    <section className="py-24 bg-white">
+    <section className="py-24 bg-neutral-950">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
 
@@ -52,19 +52,19 @@ const BrandChapter = ({
           <div className={`space-y-6 ${imageLeft ? 'order-1 md:order-2' : ''}`}>
 
             {/* "Chapter 1" ya "Chapter 2" label */}
-            <p className="text-yellow-600 text-[10px] uppercase tracking-[0.3em] font-medium">
+            <p className="text-amber-400 text-[10px] uppercase tracking-[0.3em] font-medium">
               Chapter {chapter}
             </p>
 
             {/* Heading */}
-            <h2 className="font-serif text-4xl text-gray-900 font-light leading-tight">
+            <h2 className="font-serif text-4xl text-white font-light leading-tight">
               {heading}<br />
               <span className="italic">{headingItalic}</span>
             </h2>
 
             {/* Paragraphs — array se map karta hai */}
             {paragraphs.map((para, i) => (
-              <p key={i} className="text-gray-500 leading-relaxed text-[15px]">
+              <p key={i} className="text-neutral-400 leading-relaxed text-[15px]">
                 {para}
               </p>
             ))}
@@ -79,10 +79,12 @@ const BrandChapter = ({
           <div className={`relative ${imageLeft ? 'order-2 md:order-1' : ''}`}>
 
             {/* Image container */}
-            <div className="aspect-[4/5] overflow-hidden bg-gray-100">
+            <div className="aspect-[4/5] overflow-hidden bg-neutral-900">
               <img
                 src={image}
                 alt={imageAlt}
+                loading="lazy"
+                decoding="async"
                 className="w-full h-full object-cover"
               />
             </div>
@@ -92,7 +94,7 @@ const BrandChapter = ({
                 imageLeft=false → left side pe border
             */}
             <div className={`absolute -bottom-4 ${imageLeft ? '-right-4' : '-left-4'} 
-                             w-full h-full border border-yellow-600/20 -z-10 hidden md:block`} />
+                             w-full h-full border border-amber-400/25 -z-10 hidden md:block`} />
 
           </div>
 

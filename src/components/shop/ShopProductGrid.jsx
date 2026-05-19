@@ -10,7 +10,7 @@ import React, { useState, useMemo } from 'react';
 import { motion } from 'framer-motion';
 import ShopFilterBar from './ShopFilterBar';
 import ProductCard from './ProductCard';
-import QuickView from '../QuickView';
+import QuickView from '../QuickView-Premium';
 import { ALL_PRODUCTS } from '../../data/products';
 
 const containerVariants = {

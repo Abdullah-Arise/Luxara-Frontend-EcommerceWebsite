@@ -40,32 +40,32 @@ const promises = [
 
 const BrandPromise = () => {
   return (
-    <section className="py-20 bg-[#fafaf8]">
+    <section className="py-20 bg-neutral-950">
       <div className="max-w-7xl mx-auto px-6">
 
         {/* Heading */}
         <div className="text-center mb-14">
-          <p className="text-yellow-600 text-[10px] uppercase tracking-[0.3em] font-medium mb-3">
+          <p className="text-amber-400 text-[10px] uppercase tracking-[0.3em] font-medium mb-3">
             Our Promise
           </p>
-          <h2 className="font-serif text-4xl text-gray-900 font-light">
+          <h2 className="font-serif text-4xl text-white font-light">
             Three things we'll never{' '}
-            <span className="italic text-yellow-600">compromise on.</span>
+            <span className="italic text-amber-300">compromise on.</span>
           </h2>
         </div>
 
         {/* 3 Cards Grid
-            gap-1 + bg-gray-100 → cards ke beech thin gray line dikhti hai (design trick)
+            gap-1 + bg-white/10 -> cards ke beech thin divider dikhti hai (design trick)
         */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-1 bg-gray-100">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {promises.map((item, i) => (
-            <div key={i} className="bg-white p-10">
+            <div key={i} className="rounded-2xl border border-white/10 bg-white/5 p-10 backdrop-blur-md">
               {/* Icon */}
-              <div className="text-yellow-600 mb-5">{item.icon}</div>
+              <div className="text-amber-300 mb-5">{item.icon}</div>
               {/* Title */}
-              <h3 className="font-serif text-xl text-gray-900 mb-3">{item.title}</h3>
+              <h3 className="font-serif text-xl text-white mb-3">{item.title}</h3>
               {/* Description */}
-              <p className="text-sm text-gray-400 leading-relaxed">{item.desc}</p>
+              <p className="text-sm text-neutral-400 leading-relaxed">{item.desc}</p>
             </div>
           ))}
         </div>

@@ -14,10 +14,10 @@ const AboutStats = () => {
         <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-white/10">
           {stats.map((stat, i) => (
             <div key={i} className="text-center py-8 px-6">
-              <p className="font-serif text-4xl text-yellow-500 font-light mb-2">
+              <p className="font-serif text-4xl text-amber-300 font-light mb-2">
                 {stat.number}
               </p>
-              <p className="text-[11px] uppercase tracking-widest text-gray-400">
+              <p className="text-[11px] uppercase tracking-widest text-neutral-500">
                 {stat.label}
               </p>
             </div>

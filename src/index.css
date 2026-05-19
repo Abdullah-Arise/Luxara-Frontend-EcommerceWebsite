@@ -1,17 +1,14 @@
 @import "tailwindcss";
 
 @theme {
-  /* Brand Colors */
-  --color-primary: #1a1a1a;
-  --color-secondary: #d4af37;
-
-  /* Global Font - Ab puri site is font mein chalegi */
-  --font-sans: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --color-primary: #f5f1ea;
+  --color-secondary: #d6b46a;
+  --font-sans: "Manrope", sans-serif;
+  --font-serif: "Cormorant Garamond", serif;
 }
 
-/* Ye zaroori hai taake default font change ho jaye */
 body {
   font-family: var(--font-sans);
   color: var(--color-primary);
-  background-color: white;
+  background-color: #050507;
 }

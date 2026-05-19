@@ -17,18 +17,18 @@ import React from 'react';
 
 const FAQHero = () => {
   return (
-    <div className="pt-32 pb-12 bg-[#fafaf8] border-b border-gray-100">
+    <div className="pt-32 pb-12 bg-neutral-950 border-b border-white/5">
       <div className="max-w-7xl mx-auto px-6">
 
         {/* Chhota label — "Support" */}
-        <p className="text-yellow-600 text-[10px] uppercase tracking-[0.3em] font-medium mb-3">
+        <p className="text-amber-400 text-[10px] uppercase tracking-[0.3em] font-medium mb-3">
           Support
         </p>
 
         {/* Main heading */}
-        <h1 className="font-serif text-5xl text-gray-900 font-light">
+        <h1 className="font-serif text-5xl text-white font-light">
           Frequently Asked{' '}
-          <span className="italic text-yellow-600">Questions</span>
+          <span className="italic text-amber-300">Questions</span>
         </h1>
 
       </div>

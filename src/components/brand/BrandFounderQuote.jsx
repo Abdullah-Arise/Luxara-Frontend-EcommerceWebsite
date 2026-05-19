@@ -19,28 +19,28 @@ import React from 'react';
 
 const BrandFounderQuote = () => {
   return (
-    <section className="py-20 bg-white">
+    <section className="py-20 bg-neutral-950">
       <div className="max-w-3xl mx-auto px-6 text-center">
 
         {/* Label */}
-        <p className="text-yellow-600 text-[10px] uppercase tracking-[0.3em] font-medium mb-6">
+        <p className="text-amber-400 text-[10px] uppercase tracking-[0.3em] font-medium mb-6">
           A Personal Note
         </p>
 
         {/* Quote — yahan apni quote change karo */}
-        <p className="font-serif text-2xl md:text-3xl text-gray-900 font-light leading-relaxed mb-10 italic">
+        <p className="font-serif text-2xl md:text-3xl text-white font-light leading-relaxed mb-10 italic">
           "I started Luxara because I wanted to make something real. Something that wouldn't let people down.
           Every piece we sell is a promise — and I take that seriously."
         </p>
 
         {/* Divider line */}
-        <div className="w-12 h-0.5 bg-yellow-600 mx-auto mb-6" />
+        <div className="w-12 h-0.5 bg-amber-400 mx-auto mb-6" />
 
         {/* Founder Name — yahan naam change karo */}
-        <p className="font-serif text-xl text-gray-900">Abdullah</p>
+        <p className="font-serif text-xl text-white">Abdullah</p>
 
         {/* Title */}
-        <p className="text-xs text-gray-400 uppercase tracking-widest mt-1">
+        <p className="text-xs text-neutral-500 uppercase tracking-widest mt-1">
           Founder, Luxara
         </p>
 

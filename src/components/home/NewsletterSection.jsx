@@ -84,7 +84,7 @@ const NewsletterSection = () => {
                 whileHover={{ scale: 1.02, y: -5 }}
                 whileTap={{ scale: 0.99 }}
                 onClick={handleSubmit}
-                className="flex items-center justify-center gap-2 rounded-full border border-white/10 bg-white px-8 py-4 text-[11px] font-semibold uppercase tracking-[0.28em] text-black shadow-[0_12px_40px_rgba(255,255,255,0.12)] transition-all duration-300 hover:bg-neutral-100 whitespace-nowrap"
+                className="flex items-center justify-center gap-2 rounded-full border border-amber-400/30 bg-[#d6b46a] px-8 py-4 text-[11px] font-semibold uppercase tracking-[0.28em] text-black shadow-[0_12px_40px_rgba(214,180,106,0.25)] transition-all duration-300 hover:bg-[#e0c07a] whitespace-nowrap"
               >
                 Subscribe <ArrowRight size={14} />
               </motion.button>

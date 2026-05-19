@@ -66,28 +66,28 @@ const ContactInfo = () => {
   };
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-20 bg-neutral-950">
       <div className="max-w-7xl mx-auto px-6">
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-1 bg-gray-100">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
 
           {/* LEFT — Contact Form */}
-          <div className="bg-white p-10 md:p-12">
-            <p className="text-yellow-600 text-[10px] uppercase tracking-[0.3em] font-medium mb-3">
+          <div className="rounded-3xl border border-white/10 bg-white/5 p-10 md:p-12 backdrop-blur-md">
+            <p className="text-amber-300 text-[10px] uppercase tracking-[0.3em] font-medium mb-3">
               Send a Message
             </p>
-            <h2 className="font-serif text-4xl text-gray-900 font-light mb-10">
-              We're always <span className="italic text-yellow-600">here.</span>
+            <h2 className="font-serif text-4xl text-white font-light mb-10">
+              We're always <span className="italic text-amber-300">here.</span>
             </h2>
 
             {submitted ? (
               <div className="flex flex-col items-center justify-center py-16 text-center">
                 <CheckCircle size={48} className="text-green-500 mb-4" />
-                <h3 className="font-serif text-2xl text-gray-900 mb-2">Message Sent!</h3>
-                <p className="text-gray-400 text-sm">We'll get back to you within a few hours.</p>
+                <h3 className="font-serif text-2xl text-white mb-2">Message Sent!</h3>
+                <p className="text-neutral-400 text-sm">We'll get back to you within a few hours.</p>
                 <button
                   onClick={() => setSubmitted(false)}
-                  className="mt-6 text-[11px] uppercase tracking-widest border-b border-gray-300 pb-0.5 hover:text-yellow-600 hover:border-yellow-600 transition-colors"
+                  className="mt-6 text-[11px] uppercase tracking-widest border-b border-white/20 pb-0.5 hover:text-amber-300 hover:border-amber-300 transition-colors"
                 >
                   Send Another
                 </button>
@@ -97,44 +97,44 @@ const ContactInfo = () => {
 
                 {/* Name */}
                 <div>
-                  <label className="text-[10px] uppercase tracking-widest text-gray-400 mb-2 block">Your Name</label>
+                  <label className="text-[10px] uppercase tracking-widest text-neutral-500 mb-2 block">Your Name</label>
                   <input
                     type="text" name="name" value={formData.name} onChange={handleChange}
                     placeholder="e.g. Fatima Khan"
-                    className={`w-full border px-4 py-3.5 text-sm focus:outline-none focus:border-yellow-500 transition-colors bg-[#fafaf8] ${errors.name ? 'border-red-400' : 'border-gray-200'}`}
+                    className={`w-full border px-4 py-3.5 text-sm focus:outline-none focus:border-amber-400 transition-colors bg-black/40 text-white placeholder:text-neutral-500 ${errors.name ? 'border-red-400' : 'border-white/10'}`}
                   />
                   {errors.name && <p className="text-red-400 text-xs mt-1">{errors.name}</p>}
                 </div>
 
                 {/* Email */}
                 <div>
-                  <label className="text-[10px] uppercase tracking-widest text-gray-400 mb-2 block">Email Address</label>
+                  <label className="text-[10px] uppercase tracking-widest text-neutral-500 mb-2 block">Email Address</label>
                   <input
                     type="email" name="email" value={formData.email} onChange={handleChange}
                     placeholder="you@example.com"
-                    className={`w-full border px-4 py-3.5 text-sm focus:outline-none focus:border-yellow-500 transition-colors bg-[#fafaf8] ${errors.email ? 'border-red-400' : 'border-gray-200'}`}
+                    className={`w-full border px-4 py-3.5 text-sm focus:outline-none focus:border-amber-400 transition-colors bg-black/40 text-white placeholder:text-neutral-500 ${errors.email ? 'border-red-400' : 'border-white/10'}`}
                   />
                   {errors.email && <p className="text-red-400 text-xs mt-1">{errors.email}</p>}
                 </div>
 
                 {/* Subject */}
                 <div>
-                  <label className="text-[10px] uppercase tracking-widest text-gray-400 mb-2 block">Subject</label>
+                  <label className="text-[10px] uppercase tracking-widest text-neutral-500 mb-2 block">Subject</label>
                   <input
                     type="text" name="subject" value={formData.subject} onChange={handleChange}
                     placeholder="How can we help?"
-                    className={`w-full border px-4 py-3.5 text-sm focus:outline-none focus:border-yellow-500 transition-colors bg-[#fafaf8] ${errors.subject ? 'border-red-400' : 'border-gray-200'}`}
+                    className={`w-full border px-4 py-3.5 text-sm focus:outline-none focus:border-amber-400 transition-colors bg-black/40 text-white placeholder:text-neutral-500 ${errors.subject ? 'border-red-400' : 'border-white/10'}`}
                   />
                   {errors.subject && <p className="text-red-400 text-xs mt-1">{errors.subject}</p>}
                 </div>
 
                 {/* Message */}
                 <div>
-                  <label className="text-[10px] uppercase tracking-widest text-gray-400 mb-2 block">Message</label>
+                  <label className="text-[10px] uppercase tracking-widest text-neutral-500 mb-2 block">Message</label>
                   <textarea
                     name="message" rows="4" value={formData.message} onChange={handleChange}
                     placeholder="Your message..."
-                    className={`w-full border px-4 py-3.5 text-sm focus:outline-none focus:border-yellow-500 transition-colors bg-[#fafaf8] resize-none ${errors.message ? 'border-red-400' : 'border-gray-200'}`}
+                    className={`w-full border px-4 py-3.5 text-sm focus:outline-none focus:border-amber-400 transition-colors bg-black/40 text-white placeholder:text-neutral-500 resize-none ${errors.message ? 'border-red-400' : 'border-white/10'}`}
                   />
                   {errors.message && <p className="text-red-400 text-xs mt-1">{errors.message}</p>}
                 </div>
@@ -142,7 +142,7 @@ const ContactInfo = () => {
                 <button
                   onClick={handleSubmit}
                   disabled={loading}
-                  className="w-full bg-[#0f0d0b] text-white py-4 text-[11px] uppercase tracking-widest hover:bg-yellow-600 transition-colors flex items-center justify-center gap-2 disabled:opacity-60"
+                  className="w-full bg-[#d6b46a] text-black py-4 text-[11px] uppercase tracking-widest hover:bg-[#e0c07a] transition-colors flex items-center justify-center gap-2 disabled:opacity-60"
                 >
                   {loading ? 'Sending...' : (<><Send size={13} /> Send Message</>)}
                 </button>
@@ -151,9 +151,9 @@ const ContactInfo = () => {
           </div>
 
           {/* RIGHT — Info + Policies */}
-          <div className="bg-[#0f0d0b] p-10 md:p-12 space-y-8">
+          <div className="rounded-3xl border border-white/10 bg-black/60 p-10 md:p-12 space-y-8 backdrop-blur-md">
             <div>
-              <p className="text-yellow-500 text-[10px] uppercase tracking-[0.3em] font-medium mb-3">
+              <p className="text-amber-400 text-[10px] uppercase tracking-[0.3em] font-medium mb-3">
                 Get in Touch
               </p>
               <h2 className="font-serif text-3xl text-white font-light">
@@ -174,8 +174,8 @@ const ContactInfo = () => {
               </div>
               <div>
                 <h3 className="font-medium text-white mb-1">WhatsApp</h3>
-                <p className="text-sm text-gray-400 leading-relaxed">Fastest way. Order, ask questions, or get help.</p>
-                <p className="text-[11px] uppercase tracking-widest text-yellow-500 mt-2 font-medium">Chat Now →</p>
+                <p className="text-sm text-neutral-400 leading-relaxed">Fastest way. Order, ask questions, or get help.</p>
+                <p className="text-[11px] uppercase tracking-widest text-amber-400 mt-2 font-medium">Chat Now →</p>
               </div>
             </div>
 
@@ -189,8 +189,8 @@ const ContactInfo = () => {
               </div>
               <div>
                 <h3 className="font-medium text-white mb-1">Instagram</h3>
-                <p className="text-sm text-gray-400 leading-relaxed">DM us for order updates or collabs.</p>
-                <p className="text-[11px] uppercase tracking-widest text-yellow-500 mt-2 font-medium">@luxaraa.pk →</p>
+                <p className="text-sm text-neutral-400 leading-relaxed">DM us for order updates or collabs.</p>
+                <p className="text-[11px] uppercase tracking-widest text-amber-400 mt-2 font-medium">@luxaraa.pk →</p>
               </div>
             </div>
 
@@ -199,15 +199,15 @@ const ContactInfo = () => {
               className="flex items-start gap-5 cursor-pointer group"
               onClick={() => window.open('https://www.threads.com/@luxaraa.pk', '_blank')}
             >
-              <div className="w-12 h-12 bg-gray-800 flex items-center justify-center shrink-0 group-hover:bg-white transition-colors">
-                <span className="text-gray-300 group-hover:text-black transition-colors">
+              <div className="w-12 h-12 bg-white/5 flex items-center justify-center shrink-0 group-hover:bg-amber-400 transition-colors">
+                <span className="text-neutral-300 group-hover:text-black transition-colors">
                   <ThreadsIcon size={20} />
                 </span>
               </div>
               <div>
                 <h3 className="font-medium text-white mb-1">Threads</h3>
-                <p className="text-sm text-gray-400 leading-relaxed">Follow us on Threads for updates.</p>
-                <p className="text-[11px] uppercase tracking-widest text-yellow-500 mt-2 font-medium">@luxaraa.pk →</p>
+                <p className="text-sm text-neutral-400 leading-relaxed">Follow us on Threads for updates.</p>
+                <p className="text-[11px] uppercase tracking-widest text-amber-400 mt-2 font-medium">@luxaraa.pk →</p>
               </div>
             </div>
 
@@ -218,8 +218,8 @@ const ContactInfo = () => {
               </div>
               <div>
                 <h3 className="font-medium text-white mb-1">Email</h3>
-                <p className="text-sm text-gray-400 leading-relaxed">For wholesale or formal queries.</p>
-                <p className="text-[11px] uppercase tracking-widest text-yellow-500 mt-2 font-medium">abdullahuser052@gmail.com</p>
+                <p className="text-sm text-neutral-400 leading-relaxed">For wholesale or formal queries.</p>
+                <p className="text-[11px] uppercase tracking-widest text-amber-400 mt-2 font-medium">abdullahuser052@gmail.com</p>
               </div>
             </div>
 
@@ -230,7 +230,7 @@ const ContactInfo = () => {
               </div>
               <div>
                 <h3 className="font-medium text-white mb-1">Response Time</h3>
-                <p className="text-sm text-gray-400 leading-relaxed">
+                <p className="text-sm text-neutral-400 leading-relaxed">
                   Mon–Sat: 10 AM – 9 PM<br />
                   Replies within a few hours.
                 </p>
@@ -241,16 +241,16 @@ const ContactInfo = () => {
         </div>
 
         {/* Policies */}
-        <div className="mt-1 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-1 bg-gray-100">
+        <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {[
             { title: "Shipping", desc: "Nationwide via TCS / Leopard. 3–5 days. Fixed Rs. 200 charge." },
             { title: "Cash on Delivery", desc: "COD available all over Pakistan. Pay when it arrives." },
             { title: "Exchange Policy", desc: "7-day exchange for damaged or incorrect items. Unused & original pack." },
             { title: "Shine Promise", desc: "Color changes in 6 months? We replace it. No questions." },
           ].map((policy, i) => (
-            <div key={i} className="bg-white p-8">
-              <h3 className="font-serif text-lg text-gray-900 mb-3">{policy.title}</h3>
-              <p className="text-sm text-gray-400 leading-relaxed">{policy.desc}</p>
+            <div key={i} className="rounded-2xl border border-white/10 bg-white/5 p-8 backdrop-blur-md">
+              <h3 className="font-serif text-lg text-white mb-3">{policy.title}</h3>
+              <p className="text-sm text-neutral-400 leading-relaxed">{policy.desc}</p>
             </div>
           ))}
         </div>
