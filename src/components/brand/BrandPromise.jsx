@@ -23,18 +23,18 @@ import { Shield, Droplets, Sparkles } from 'lucide-react';
 const promises = [
   {
     icon: <Shield size={28} />,
-    title: "Anti-Tarnish. Always.",
-    desc: "PVD coating bonds permanently to the steel surface. No fading, no peeling, no turning black. If it does within 6 months, we replace it.",
+    title: "Polished Cuff Finishes.",
+    desc: "Our stainless steel cuffs are chosen for a durable polished finish. Gentle care keeps gold and silver tones looking their best.",
   },
   {
     icon: <Droplets size={28} />,
-    title: "Truly Waterproof.",
-    desc: "Shower. Swim. Gym. Our jewelry is tested for water resistance. Wear it every day without a single worry.",
+    title: "Waterproof Cuffs.",
+    desc: "Our stainless steel cuffs are waterproof and made for everyday wear. Handmade bead bracelets should be kept away from excess moisture.",
   },
   {
     icon: <Sparkles size={28} />,
     title: "Real Luxury Feel.",
-    desc: "18K gold, silver, and rose gold PVD. AAA cubic zirconia. Precision craftsmanship. The look of imported jewelry at local prices.",
+    desc: "Handmade bead bracelets, gold cuffs, and silver cuffs. Distinct Luxara pieces with a refined look at accessible prices.",
   },
 ];
 

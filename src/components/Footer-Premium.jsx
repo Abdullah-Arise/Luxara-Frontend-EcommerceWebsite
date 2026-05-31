@@ -62,7 +62,7 @@ const Footer = () => {
               </motion.h2>
             </Link>
             <p className="text-neutral-400 text-sm leading-relaxed">
-              Premium anti-tarnish jewelry. Waterproof. Skin-safe. Everyday luxury.
+              Handmade bead bracelets and stainless steel cuffs. Everyday luxury.
             </p>
             <div className="flex space-x-4">
               {[
@@ -93,9 +93,10 @@ const Footer = () => {
               {[
                 { label: 'New Arrivals', path: '/new-arrivals' },
                 { label: 'Shop All', path: '/shop' },
-                { label: 'Bracelets', path: '/shop?category=Bracelets' },
-                { label: 'Pendants', path: '/shop?category=Pendants' },
-                { label: 'Gift Sets', path: '/gift-sets' },
+                { label: 'Handmade Bracelets', path: '/shop?category=Handmade%20Bracelets' },
+                { label: 'Gold Cuffs', path: '/shop?category=Gold%20Cuffs' },
+                { label: 'Silver Cuffs', path: '/shop?category=Silver%20Cuffs' },
+                { label: 'Cuff Collection', path: '/gift-sets' },
                 { label: 'Our Story', path: '/our-story' }
               ].map((link, idx) => (
                 <motion.li
@@ -117,9 +118,8 @@ const Footer = () => {
             <h3 className="text-[10px] font-bold uppercase tracking-[0.3em] mb-6 text-amber-400/90">Support</h3>
             <ul className="space-y-3.5 text-sm text-neutral-400">
               {[
-                { label: 'Track Order', path: '/track-order' },
                 { label: 'Shipping & Returns', path: '/contact' },
-                { label: 'Jewelry Care', path: '/jewelry-care' },
+                { label: 'Cuff & Bracelet Care', path: '/jewelry-care' },
                 { label: 'FAQs', path: '/faqs' },
                 { label: 'Contact Us', path: '/contact' },
                 { label: 'About Luxara', path: '/about' }
@@ -201,7 +201,7 @@ const Footer = () => {
         >
           <div className="flex items-center gap-2">
             <span className="text-amber-400/40">©</span>
-            <span>2025 Luxara. All rights reserved.</span>
+            <span>2026 Luxara. All rights reserved.</span>
           </div>
           <div className="flex space-x-6">
             <Link to="/contact" className="hover:text-amber-400 transition-colors duration-300">Privacy Policy</Link>

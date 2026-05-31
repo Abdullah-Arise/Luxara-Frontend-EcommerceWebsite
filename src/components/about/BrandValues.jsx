@@ -4,23 +4,23 @@ import { Droplets, Shield, Sparkles, Heart } from 'lucide-react';
 const values = [
   {
     icon: <Droplets size={28} />,
-    title: "Truly Waterproof",
-    desc: "Shower. Swim. Sweat. Our jewelry doesn't care. Surgical steel 316L doesn't react to water or moisture — ever.",
+    title: "Steel Cuff Finish",
+    desc: "Our stainless steel cuffs are made for confident everyday wear, with polished gold and silver finishes that are easy to style.",
   },
   {
     icon: <Shield size={28} />,
-    title: "Anti-Tarnish Promise",
-    desc: "Unlike regular plated jewelry, Luxara pieces are coated with PVD — a permanent bond that doesn't fade or peel.",
+    title: "Two Product Lines",
+    desc: "Luxara cuffs are selected for a durable finish, while our bead bracelets are individually assembled with care.",
   },
   {
     icon: <Sparkles size={28} />,
     title: "Premium Finish",
-    desc: "18K gold, silver, and rose gold PVD finishes. AAA cubic zirconia stones. The look of luxury at a real price.",
+    desc: "Choose warm gold cuffs, clean silver cuffs, or expressive handmade bead bracelets. Every line carries a distinct Luxara character.",
   },
   {
     icon: <Heart size={28} />,
     title: "Made for Real Life",
-    desc: "We don't make jewelry for display cases. We make it to be worn daily, layered freely, and kept forever.",
+    desc: "We make bracelets and cuffs to be worn often, layered freely, and styled in a way that feels personal.",
   },
 ];
 

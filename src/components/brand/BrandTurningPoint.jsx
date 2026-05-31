@@ -29,16 +29,15 @@ const BrandTurningPoint = () => {
 
         {/* Big Quote */}
         <h2 className="font-serif text-4xl md:text-5xl text-white font-light leading-tight mb-8">
-          "What if the jewelry lasted<br />
+          "What if every bracelet felt<br />
           <span className="italic text-yellow-400">as long as the memory?"</span>
         </h2>
 
         {/* Explanation paragraph */}
         <p className="text-gray-400 leading-relaxed max-w-2xl mx-auto">
-          That question changed everything. We spent months researching materials — visiting suppliers,
-          testing finishes, and learning about surgical steel 316L and PVD coating technology.
-          The kind of material used in medical instruments. The kind that doesn't react to water,
-          sweat, or skin — ever.
+          That question shaped the next chapter. We kept the handmade bead bracelets that started
+          Luxara and expanded the collection with polished stainless steel cuffs in gold and silver.
+          The result is a focused line made for personal styling, thoughtful gifting, and everyday wear.
         </p>
 
       </div>

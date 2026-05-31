@@ -72,7 +72,7 @@ const ContactInfo = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
 
           {/* LEFT — Contact Form */}
-          <div className="rounded-3xl border border-white/10 bg-white/5 p-10 md:p-12 backdrop-blur-md">
+          <div className="rounded-3xl border border-white/10 bg-white/5 p-6 sm:p-10 md:p-12 backdrop-blur-md">
             <p className="text-amber-300 text-[10px] uppercase tracking-[0.3em] font-medium mb-3">
               Send a Message
             </p>
@@ -151,7 +151,7 @@ const ContactInfo = () => {
           </div>
 
           {/* RIGHT — Info + Policies */}
-          <div className="rounded-3xl border border-white/10 bg-black/60 p-10 md:p-12 space-y-8 backdrop-blur-md">
+          <div className="rounded-3xl border border-white/10 bg-black/60 p-6 sm:p-10 md:p-12 space-y-8 backdrop-blur-md">
             <div>
               <p className="text-amber-400 text-[10px] uppercase tracking-[0.3em] font-medium mb-3">
                 Get in Touch
@@ -172,7 +172,7 @@ const ContactInfo = () => {
               <div className="w-12 h-12 bg-green-900/30 flex items-center justify-center shrink-0 group-hover:bg-green-500 transition-colors">
                 <MessageCircle size={20} className="text-green-400 group-hover:text-white transition-colors" />
               </div>
-              <div>
+              <div className="min-w-0">
                 <h3 className="font-medium text-white mb-1">WhatsApp</h3>
                 <p className="text-sm text-neutral-400 leading-relaxed">Fastest way. Order, ask questions, or get help.</p>
                 <p className="text-[11px] uppercase tracking-widest text-amber-400 mt-2 font-medium">Chat Now →</p>
@@ -187,7 +187,7 @@ const ContactInfo = () => {
               <div className="w-12 h-12 bg-pink-900/20 flex items-center justify-center shrink-0 group-hover:bg-pink-500 transition-colors">
                 <Instagram size={20} className="text-pink-400 group-hover:text-white transition-colors" />
               </div>
-              <div>
+              <div className="min-w-0">
                 <h3 className="font-medium text-white mb-1">Instagram</h3>
                 <p className="text-sm text-neutral-400 leading-relaxed">DM us for order updates or collabs.</p>
                 <p className="text-[11px] uppercase tracking-widest text-amber-400 mt-2 font-medium">@luxaraa.pk →</p>
@@ -204,7 +204,7 @@ const ContactInfo = () => {
                   <ThreadsIcon size={20} />
                 </span>
               </div>
-              <div>
+              <div className="min-w-0">
                 <h3 className="font-medium text-white mb-1">Threads</h3>
                 <p className="text-sm text-neutral-400 leading-relaxed">Follow us on Threads for updates.</p>
                 <p className="text-[11px] uppercase tracking-widest text-amber-400 mt-2 font-medium">@luxaraa.pk →</p>
@@ -216,10 +216,10 @@ const ContactInfo = () => {
               <div className="w-12 h-12 bg-blue-900/20 flex items-center justify-center shrink-0">
                 <Mail size={20} className="text-blue-400" />
               </div>
-              <div>
+              <div className="min-w-0">
                 <h3 className="font-medium text-white mb-1">Email</h3>
                 <p className="text-sm text-neutral-400 leading-relaxed">For wholesale or formal queries.</p>
-                <p className="text-[11px] uppercase tracking-widest text-amber-400 mt-2 font-medium">abdullahuser052@gmail.com</p>
+                <p className="break-all text-[11px] uppercase tracking-widest text-amber-400 mt-2 font-medium">abdullahuser052@gmail.com</p>
               </div>
             </div>
 
@@ -228,7 +228,7 @@ const ContactInfo = () => {
               <div className="w-12 h-12 bg-yellow-900/20 flex items-center justify-center shrink-0">
                 <Clock size={20} className="text-yellow-600" />
               </div>
-              <div>
+              <div className="min-w-0">
                 <h3 className="font-medium text-white mb-1">Response Time</h3>
                 <p className="text-sm text-neutral-400 leading-relaxed">
                   Mon–Sat: 10 AM – 9 PM<br />
@@ -246,7 +246,7 @@ const ContactInfo = () => {
             { title: "Shipping", desc: "Nationwide via TCS / Leopard. 3–5 days. Fixed Rs. 200 charge." },
             { title: "Cash on Delivery", desc: "COD available all over Pakistan. Pay when it arrives." },
             { title: "Exchange Policy", desc: "7-day exchange for damaged or incorrect items. Unused & original pack." },
-            { title: "Shine Promise", desc: "Color changes in 6 months? We replace it. No questions." },
+            { title: "Cuff Shine Promise", desc: "Stainless steel cuff finish changes in 6 months? We replace it. No questions." },
           ].map((policy, i) => (
             <div key={i} className="rounded-2xl border border-white/10 bg-white/5 p-8 backdrop-blur-md">
               <h3 className="font-serif text-lg text-white mb-3">{policy.title}</h3>

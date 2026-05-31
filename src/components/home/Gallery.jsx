@@ -1,26 +1,40 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Instagram, ArrowUpRight } from 'lucide-react';
+import luxaraLife from '../../assets/photos/luxaralife.webp';
+import luxaraLife2 from '../../assets/photos/luxaralife2.webp';
+import luxaraLife3 from '../../assets/photos/luxaralife3.webp';
+import luxaraLife4 from '../../assets/photos/luxaralife4.webp';
+
+const instagramProfile = 'https://www.instagram.com/luxaraa.pk';
 
 const galleryItems = [
   {
     id: 1,
-    src: "https://images.unsplash.com/photo-1615655406736-b37c4fabf923?q=80&w=1000&auto=format&fit=crop",
+    src: luxaraLife,
+    href: 'https://www.instagram.com/reel/DVO0dT1iNZN/?igsh=bGwxcXB5ZnJ4d3I5',
+    label: 'Watch Luxara reel on Instagram',
     className: "col-span-2 row-span-2"
   },
   {
     id: 2,
-    src: "https://images.unsplash.com/photo-1590548774585-607691a54775?q=80&w=1000&auto=format&fit=crop",
+    src: luxaraLife2,
+    href: 'https://www.instagram.com/reel/DU3SUKoCPcB/?igsh=YzRoNG52ZWt6Z3h6',
+    label: 'Watch Luxara reel on Instagram',
     className: ""
   },
   {
     id: 3,
-    src: "https://images.unsplash.com/photo-1611085583191-a3b181a88401?q=80&w=1000&auto=format&fit=crop",
+    src: luxaraLife3,
+    href: 'https://www.instagram.com/p/DVbdY0RiJDc/?igsh=ZmoxM2Exb3gydzdl',
+    label: 'View Luxara post on Instagram',
     className: ""
   },
   {
     id: 4,
-    src: "https://images.unsplash.com/photo-1579766989932-d812328701e8?q=80&w=1000&auto=format&fit=crop",
+    src: luxaraLife4,
+    href: instagramProfile,
+    label: 'Visit Luxara on Instagram',
     className: "col-span-2"
   }
 ];
@@ -70,9 +84,14 @@ const Gallery = () => {
             </p>
           </div>
 
-          <button className="inline-flex items-center gap-2 self-start rounded-full border border-white/10 bg-white/5 px-5 py-3 text-[11px] font-semibold uppercase tracking-[0.28em] text-white transition-all duration-300 hover:border-amber-300/30 hover:bg-amber-400 hover:text-black hover:shadow-[0_0_30px_rgba(212,175,55,0.16)] backdrop-blur-md md:self-auto">
+          <a
+            href={instagramProfile}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-2 self-start rounded-full border border-white/10 bg-white/5 px-5 py-3 text-[11px] font-semibold uppercase tracking-[0.28em] text-white transition-all duration-300 hover:border-amber-300/30 hover:bg-amber-400 hover:text-black hover:shadow-[0_0_30px_rgba(212,175,55,0.16)] backdrop-blur-md md:self-auto"
+          >
             <Instagram size={16} /> Follow Us <ArrowUpRight size={14} />
-          </button>
+          </a>
         </motion.div>
 
         <motion.div
@@ -83,8 +102,12 @@ const Gallery = () => {
           viewport={{ once: true, margin: '-50px' }}
         >
           {galleryItems.map((item) => (
-            <motion.div
+            <motion.a
               key={item.id}
+              href={item.href}
+              target="_blank"
+              rel="noreferrer"
+              aria-label={item.label}
               variants={itemVariants}
               whileHover={{ scale: 1.02, y: -5 }}
               transition={{ duration: 0.35, ease: 'easeOut' }}
@@ -92,17 +115,17 @@ const Gallery = () => {
             >
               <img
                 src={item.src}
-                alt="Luxara gallery"
+                alt="Luxara Life jewelry"
                 loading="lazy"
                 decoding="async"
                 className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-70 transition-all duration-300 group-hover:opacity-100" />
               <div className="absolute inset-0 border border-white/10 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-              <div className="absolute left-4 top-4 rounded-full border border-white/10 bg-black/35 p-2 text-white opacity-0 backdrop-blur-md transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 translate-y-2">
+              <div className="absolute left-4 top-4 translate-y-0 rounded-full border border-white/10 bg-black/35 p-2 text-white opacity-100 backdrop-blur-md transition-all duration-300 [@media(hover:hover)]:translate-y-2 [@media(hover:hover)]:opacity-0 [@media(hover:hover)]:group-hover:translate-y-0 [@media(hover:hover)]:group-hover:opacity-100">
                 <Instagram size={16} />
               </div>
-            </motion.div>
+            </motion.a>
           ))}
         </motion.div>
       </div>

@@ -54,9 +54,9 @@ const Chatbot = () => {
   };
 
   return (
-    <div className="fixed bottom-24 left-6 z-50 flex flex-col items-start gap-2">
+    <div className="fixed bottom-4 left-5 z-50 flex flex-col items-start gap-2 sm:bottom-24 sm:left-6">
       {isOpen && (
-        <div className="w-80 bg-neutral-950 rounded-2xl shadow-2xl flex flex-col overflow-hidden border border-white/10">
+        <div className="w-[calc(100vw-2rem)] max-w-80 bg-neutral-950 rounded-2xl shadow-2xl flex flex-col overflow-hidden border border-white/10">
           <div className="flex items-center justify-between px-4 py-3 bg-black">
             <div className="flex items-center gap-2">
               <div className="w-8 h-8 rounded-full bg-amber-300 flex items-center justify-center">
@@ -107,7 +107,7 @@ const Chatbot = () => {
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={handleKeyDown}
               placeholder="Ask me anything..."
-              className="flex-1 text-sm border border-white/10 bg-black/40 text-white placeholder-neutral-500 rounded-full px-3 py-2 outline-none focus:border-amber-400/50 transition-colors"
+              className="min-w-0 flex-1 text-sm border border-white/10 bg-black/40 text-white placeholder-neutral-500 rounded-full px-3 py-2 outline-none focus:border-amber-400/50 transition-colors"
               disabled={loading}
             />
             <button
@@ -127,7 +127,7 @@ const Chatbot = () => {
 
       <button
         onClick={() => setIsOpen(prev => !prev)}
-        className="w-14 h-14 rounded-full shadow-xl flex items-center justify-center hover:scale-110 transition-transform duration-300 active:scale-95"
+        className="relative flex h-12 w-12 items-center justify-center rounded-full shadow-xl transition-transform duration-300 hover:scale-110 active:scale-95 sm:h-14 sm:w-14"
         style={{ backgroundColor: '#d6b46a' }}
         aria-label="Open AI chat"
       >
@@ -140,7 +140,7 @@ const Chatbot = () => {
             <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/>
           </svg>
         )}
-        <span className="absolute w-14 h-14 rounded-full animate-ping opacity-10" style={{ backgroundColor: '#d6b46a' }} aria-hidden="true" />
+        <span className="absolute h-12 w-12 animate-ping rounded-full opacity-10 sm:h-14 sm:w-14" style={{ backgroundColor: '#d6b46a' }} aria-hidden="true" />
       </button>
     </div>
   );

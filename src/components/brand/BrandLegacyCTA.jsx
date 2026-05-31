@@ -37,7 +37,7 @@ const BrandLegacyCTA = () => {
 
       {/* Description */}
       <p className="text-neutral-400 text-sm mb-8 max-w-sm mx-auto">
-        Every piece tells this story. Anti-tarnish. Waterproof. Made to last.
+        Handmade bracelets and polished cuffs, brought together with Luxara character.
       </p>
 
       {/* Button — Link component from react-router-dom, to="/shop" pe jaata hai */}
@@ -46,7 +46,7 @@ const BrandLegacyCTA = () => {
         className="inline-flex items-center gap-2 bg-[#d6b46a] text-black px-10 py-4
              text-[11px] uppercase tracking-widest hover:bg-[#e0c07a] transition-colors"
       >
-        Shop All Jewelry <ArrowRight size={14} />
+        Shop Bracelets & Cuffs <ArrowRight size={14} />
       </Link>
 
     </div>

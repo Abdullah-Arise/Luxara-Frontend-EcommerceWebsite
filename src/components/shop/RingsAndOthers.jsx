@@ -1,8 +1,8 @@
 // ============================================================
-// RINGS & OTHERS — src/components/shop/RingsAndOthers.jsx
+// HANDMADE BRACELETS & STEEL CUFFS - src/components/shop/RingsAndOthers.jsx
 //
 // Dark theme + framer-motion animations (Home page jaisa)
-// Featured rings + curated non-ring favorites
+// Featured handmade bracelets + stainless steel cuffs
 // ============================================================
 
 import React from 'react';
@@ -20,8 +20,8 @@ const containerVariants = {
 };
 
 const RingsAndOthers = ({ onQuickView, variant = 'shop' }) => {
-  const rings = ALL_PRODUCTS.filter(p => p.category === 'Rings');
-  const others = ALL_PRODUCTS.filter(p => p.category !== 'Rings').slice(0, 8);
+  const bracelets = ALL_PRODUCTS.filter(p => p.category === 'Handmade Bracelets');
+  const cuffs = ALL_PRODUCTS.filter(p => p.category === 'Gold Cuffs' || p.category === 'Silver Cuffs');
 
   return (
     <section className="relative overflow-hidden bg-neutral-950 py-16 sm:py-20">
@@ -42,20 +42,20 @@ const RingsAndOthers = ({ onQuickView, variant = 'shop' }) => {
             Featured Selection
           </span>
           <h2 className="text-3xl md:text-4xl font-serif text-white">
-            Rings & Others
+            Handmade Bracelets & Steel Cuffs
           </h2>
           <p className="text-sm text-neutral-400 mt-3 max-w-lg leading-relaxed">
-            Explore the most elegant rings and curated non-ring favourites from our collection.
+            Discover handcrafted bead bracelets and polished stainless steel cuffs in gold and silver finishes.
           </p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
 
-          {/* Rings Column */}
+          {/* Handmade Bracelets Column */}
           <div>
             <div className="flex items-center justify-between mb-6">
-              <h3 className="text-lg font-serif font-medium text-white">Rings</h3>
-              <span className="text-[10px] uppercase tracking-[0.3em] text-amber-300/70">Popular</span>
+              <h3 className="text-lg font-serif font-medium text-white">Handmade Bracelets</h3>
+              <span className="text-[10px] uppercase tracking-[0.3em] text-amber-300/70">Handcrafted</span>
             </div>
             <motion.div
               className="grid grid-cols-2 gap-5"
@@ -64,9 +64,9 @@ const RingsAndOthers = ({ onQuickView, variant = 'shop' }) => {
               whileInView="show"
               viewport={{ once: true, margin: '-50px' }}
             >
-              {rings.slice(0, 4).map(product => (
+              {bracelets.slice(0, 4).map(product => (
                 <ProductCard
-                  key={`ring-${product.id}`}
+                  key={`bracelet-${product.id}`}
                   product={product}
                   onQuickView={onQuickView}
                   variant={variant}
@@ -75,11 +75,11 @@ const RingsAndOthers = ({ onQuickView, variant = 'shop' }) => {
             </motion.div>
           </div>
 
-          {/* Others Column */}
+          {/* Steel Cuffs Column */}
           <div>
             <div className="flex items-center justify-between mb-6">
-              <h3 className="text-lg font-serif font-medium text-white">Others</h3>
-              <span className="text-[10px] uppercase tracking-[0.3em] text-amber-300/70">Trending</span>
+              <h3 className="text-lg font-serif font-medium text-white">Gold & Silver Cuffs</h3>
+              <span className="text-[10px] uppercase tracking-[0.3em] text-amber-300/70">Stainless Steel</span>
             </div>
             <motion.div
               className="grid grid-cols-2 gap-5"
@@ -88,9 +88,9 @@ const RingsAndOthers = ({ onQuickView, variant = 'shop' }) => {
               whileInView="show"
               viewport={{ once: true, margin: '-50px' }}
             >
-              {others.slice(0, 4).map(product => (
+              {cuffs.slice(0, 4).map(product => (
                 <ProductCard
-                  key={`other-${product.id}`}
+                  key={`cuff-${product.id}`}
                   product={product}
                   onQuickView={onQuickView}
                   variant={variant}

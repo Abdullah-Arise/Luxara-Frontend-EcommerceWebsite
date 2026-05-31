@@ -6,12 +6,24 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
+import shopAllVideo from '../../assets/videos/shop all page .mp4';
 
 const ShopHero = () => {
   return (
     <section className="relative overflow-hidden bg-neutral-950 pt-32 pb-16 px-4">
       {/* Radial gradient background — Home page jaisa */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(212,175,55,0.10),transparent_26%),radial-gradient(circle_at_bottom_left,rgba(255,255,255,0.05),transparent_24%)]" />
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        preload="metadata"
+        aria-label="Luxara shop collection background video"
+        className="absolute inset-0 h-full w-full object-cover opacity-45"
+      >
+        <source src={shopAllVideo} type="video/mp4" />
+      </video>
+      <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/60 to-black/25" />
 
       <motion.div
         initial={{ opacity: 0, y: 40 }}
@@ -26,12 +38,12 @@ const ShopHero = () => {
 
         {/* Main Heading */}
         <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif font-light leading-[1.02] tracking-tight text-white mb-5">
-          Shop All <span className="italic font-normal text-neutral-100">Jewelry.</span>
+          Shop All <span className="italic font-normal text-neutral-100">Bracelets & Cuffs.</span>
         </h1>
 
         {/* Description */}
         <p className="max-w-xl text-base leading-8 text-neutral-400 sm:text-lg">
-          Every piece crafted in anti-tarnish stainless steel. Waterproof. Skin-safe. Designed to last.
+          Explore handmade bead bracelets and stainless steel cuffs in polished gold and silver finishes.
         </p>
       </motion.div>
     </section>

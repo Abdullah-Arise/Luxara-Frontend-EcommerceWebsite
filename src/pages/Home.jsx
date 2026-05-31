@@ -8,6 +8,7 @@ import WhatsAppButton from '../components/WhatsAppButton-Premium';
 import Hero from '../components/home/Hero';
 import PromoCarousel from '../components/home/PromoCarousel';
 import FeaturesStrip from '../components/home/FeaturesStrip';
+import WaterproofCuffPromo from '../components/home/WaterproofCuffPromo';
 import Categories from '../components/home/Categories';
 import BestSellers from '../components/home/BestSellers';
 import Gallery from '../components/home/Gallery';
@@ -28,6 +29,7 @@ const Home = () => {
       <HeroJewelryShowcase />
       <PromoCarousel />
       <FeaturesStrip />
+      <WaterproofCuffPromo />
       <Categories />
       <BestSellers />
       <Gallery />

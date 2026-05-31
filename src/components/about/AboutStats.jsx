@@ -2,7 +2,7 @@ import React from 'react';
 
 const stats = [
   { number: "500+", label: "Happy Customers" },
-  { number: "100%", label: "Anti-Tarnish Guarantee" },
+  { number: "2", label: "Signature Product Lines" },
   { number: "3–5", label: "Days Nationwide Delivery" },
   { number: "7-Day", label: "Exchange Policy" },
 ];

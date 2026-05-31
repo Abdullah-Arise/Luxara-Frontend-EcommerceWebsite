@@ -1,15 +1,22 @@
 import React from 'react';
+import pagesHeroVideo from '../../assets/videos/globalvideoforpages.mp4';
 
 const AboutHero = () => {
   return (
     <div className="relative h-[60vh] bg-[#0f0d0b] flex items-end overflow-hidden">
       
       {/* Background Image */}
-      <img
-        src="https://images.unsplash.com/photo-1573408301185-9146fe634ad0?q=80&w=2070&auto=format&fit=crop"
-        alt="Luxara Story"
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        preload="metadata"
+        aria-label="Luxara about background video"
         className="absolute inset-0 w-full h-full object-cover opacity-40"
-      />
+      >
+        <source src={pagesHeroVideo} type="video/mp4" />
+      </video>
 
       {/* Gradient */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
@@ -21,7 +28,7 @@ const AboutHero = () => {
         </p>
         <h1 className="font-serif text-5xl md:text-6xl text-white font-light leading-tight">
           More Than<br />
-          <span className="italic text-yellow-400">Just Jewelry.</span>
+          <span className="italic text-yellow-400">Just Bracelets.</span>
         </h1>
       </div>
     </div>

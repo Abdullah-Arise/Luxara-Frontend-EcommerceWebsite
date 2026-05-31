@@ -52,7 +52,7 @@ const JewelryCanvasSection = () => {
             A closer look at the Luxara finish.
           </h2>
           <p className="mt-5 text-base leading-8 text-neutral-400">
-            A lightweight interactive preview inspired by polished anti-tarnish rings and crystal accents.
+            A lightweight interactive preview inspired by polished stainless steel cuffs and handmade bracelet details.
           </p>
         </motion.div>
 

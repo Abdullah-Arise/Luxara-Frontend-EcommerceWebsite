@@ -3,11 +3,11 @@ import { motion } from 'framer-motion';
 import { CheckCircle, XCircle, Droplets, Wind, Sparkles, AlertTriangle } from 'lucide-react';
 
 const doList = [
-  "Wear it in the shower — stainless steel loves water",
-  "Clean with a soft dry cloth after heavy use",
-  "Store in the Luxara box or a small zip pouch",
-  "Wear it to the gym, pool, or beach — no problem",
-  "Layer multiple pieces together freely",
+  "Wear your stainless steel cuffs confidently in daily life",
+  "Clean each piece with a soft dry cloth after heavy use",
+  "Store bracelets and cuffs separately to avoid scratches",
+  "Keep handmade bead bracelets away from excess moisture",
+  "Layer multiple pieces together gently",
 ];
 
 const dontList = [
@@ -21,22 +21,22 @@ const tips = [
   {
     icon: <Droplets size={24} />,
     title: "Water? No Problem.",
-    desc: "Stainless Steel 316L is fully waterproof. Shower, swim, rain — none of it will affect the finish or color. This is not regular plated jewelry.",
+    desc: "Luxara stainless steel cuffs are waterproof. Keep handmade bead bracelets away from excess moisture to preserve their finish and structure.",
   },
   {
     icon: <Wind size={24} />,
     title: "Daily Storage",
-    desc: "Keep your jewelry in the Luxara gift box when not wearing. This prevents minor scratches and keeps the shine intact longer.",
+    desc: "Store your bracelets and cuffs separately when not wearing them. This helps prevent scratches and keeps each finish looking fresh.",
   },
   {
     icon: <Sparkles size={24} />,
     title: "Cleaning",
-    desc: "Simply wipe with a soft microfiber cloth. For stubborn residue, use a damp cloth — that's it. No special jewelry cleaner needed.",
+    desc: "Wipe cuffs with a soft microfiber cloth. For handmade bead bracelets, use a clean dry cloth and handle each piece gently.",
   },
   {
     icon: <AlertTriangle size={24} />,
     title: "Avoid Chemicals",
-    desc: "Perfumes, hairsprays, and lotions contain chemicals that can dull the surface over time. Put your jewelry on AFTER applying these.",
+    desc: "Perfumes, hairsprays, and lotions can dull finishes over time. Put your bracelets and cuffs on after applying these products.",
   },
 ];
 
@@ -161,7 +161,7 @@ const CareTips = () => {
         >
           <p className="text-amber-300/90 text-[11px] uppercase tracking-[0.35em] mb-4 font-semibold">Our Guarantee</p>
           <p className="font-serif text-2xl md:text-3xl text-white font-light leading-relaxed">
-            If the color changes within 6 months of normal wear — we replace it.{' '}
+            If your stainless steel cuff finish changes within 6 months of normal wear — we replace it.{' '}
             <span className="text-amber-300 italic">No questions asked.</span>
           </p>
         </motion.div>

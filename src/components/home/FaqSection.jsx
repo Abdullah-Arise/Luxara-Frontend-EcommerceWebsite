@@ -5,16 +5,16 @@ import { ChevronDown } from 'lucide-react';
 
 const faqs = [
   {
-    question: "Will the jewelry turn black or tarnish?",
-    answer: "Never. Luxara uses Stainless Steel 316L with PVD coating — it bonds permanently to the surface and doesn't react to water, sweat, or air. This is not regular plated jewelry."
+    question: "Will the stainless steel cuffs tarnish?",
+    answer: "Our gold and silver cuffs use stainless steel with a durable finish designed for everyday wear. Keep them away from harsh chemicals and wipe them gently to preserve their polished look."
   },
   {
     question: "Is it actually waterproof?",
-    answer: "Yes. You can shower, swim, and sweat in it. Surgical steel 316L is completely waterproof. The color and finish will not change with water exposure."
+    answer: "Our stainless steel cuffs are waterproof. For handmade bead bracelets, we recommend keeping them away from excess moisture so their finish stays beautiful for longer."
   },
   {
     question: "How do I choose my size?",
-    answer: "Our rings are adjustable and fit most finger sizes. For bracelets, standard size is 7 inches (fits most wrists). Need a custom size? Leave a note on your WhatsApp order."
+    answer: "Our open cuffs are adjustable and designed for a comfortable fit. For handmade bead bracelet sizing, message us on WhatsApp and we'll help you choose the right piece."
   },
   {
     question: "Do you offer Cash on Delivery?",
@@ -68,7 +68,7 @@ const FaqSection = () => {
           </span>
           <h2 className="mt-5 font-serif text-3xl text-white md:text-5xl">You Ask, We Answer</h2>
           <p className="mx-auto mt-4 max-w-lg text-sm leading-relaxed text-neutral-400">
-            Everything you need to know about our jewelry, shipping, and sizing.
+            Everything you need to know about our bracelets, cuffs, shipping, and sizing.
           </p>
         </motion.div>
 

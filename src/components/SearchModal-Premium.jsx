@@ -2,26 +2,34 @@ import React, { useState, useEffect, useRef } from 'react';
 import { X, Search, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ALL_PRODUCTS } from '../data/products';
+import { ALL_PRODUCTS, getProductCoverImage } from '../data/products';
+import QuickView from './QuickView-Premium';
 
-const QUICK_SEARCHES = ["Pendants", "Earrings", "Rings", "Gift Sets", "Gold", "Silver"];
+const QUICK_SEARCHES = ["Handmade Bracelets", "Gold Cuffs", "Silver Cuffs", "Handmade", "Gold", "Silver"];
 
 const SearchModal = ({ isOpen, onClose }) => {
   const [query, setQuery] = useState('');
   const [results, setResults] = useState([]);
+  const [quickProduct, setQuickProduct] = useState(null);
   const inputRef = useRef(null);
 
   useEffect(() => {
     if (isOpen) {
       setTimeout(() => inputRef.current?.focus(), 100);
+    }
+
+    if (isOpen || quickProduct) {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = '';
+    }
+
+    if (!isOpen) {
       setQuery('');
       setResults([]);
     }
     return () => { document.body.style.overflow = ''; };
-  }, [isOpen]);
+  }, [isOpen, quickProduct]);
 
   useEffect(() => {
     const handleKey = (e) => { if (e.key === 'Escape') onClose(); };
@@ -40,9 +48,10 @@ const SearchModal = ({ isOpen, onClose }) => {
   }, [query]);
 
   return (
-    <AnimatePresence>
-      {isOpen && (
-        <div className="fixed inset-0 z-[100] flex flex-col">
+    <>
+      <AnimatePresence>
+        {isOpen && (
+          <div className="fixed inset-0 z-[100] flex flex-col">
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -70,8 +79,8 @@ const SearchModal = ({ isOpen, onClose }) => {
                 type="text"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
-                placeholder="Search jewelry..."
-                className="flex-1 bg-transparent text-white text-lg md:text-2xl placeholder-neutral-600 focus:outline-none"
+                placeholder="Search bracelets and cuffs..."
+                className="min-w-0 flex-1 bg-transparent text-white text-lg md:text-2xl placeholder-neutral-600 focus:outline-none"
               />
               <motion.button
                 whileHover={{ scale: 1.1, rotate: 90 }}
@@ -139,10 +148,13 @@ const SearchModal = ({ isOpen, onClose }) => {
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.4, delay: idx * 0.05 }}
                     >
-                      <Link
-                        to={`/shop?highlight=${product.id}`}
-                        onClick={onClose}
-                        className="group block"
+                      <button
+                        type="button"
+                        onClick={() => {
+                          onClose();
+                          setQuickProduct(product);
+                        }}
+                        className="group block w-full text-left"
                       >
                         <motion.div
                           whileHover={{ scale: 1.02, y: -5 }}
@@ -151,7 +163,7 @@ const SearchModal = ({ isOpen, onClose }) => {
                         >
                           <div className="w-20 h-20 rounded-xl overflow-hidden border border-white/10 bg-white/5 flex-shrink-0">
                             <img
-                              src={product.image}
+                              src={getProductCoverImage(product)}
                               alt={product.name}
                               loading="lazy"
                               decoding="async"
@@ -167,7 +179,7 @@ const SearchModal = ({ isOpen, onClose }) => {
                           </div>
                           <ArrowRight className="text-neutral-600 group-hover:text-amber-400 group-hover:translate-x-1 transition-all duration-300 self-center" size={16} />
                         </motion.div>
-                      </Link>
+                      </button>
                     </motion.div>
                   ))}
                 </motion.div>
@@ -191,9 +203,11 @@ const SearchModal = ({ isOpen, onClose }) => {
               )}
             </div>
           </motion.div>
-        </div>
-      )}
-    </AnimatePresence>
+          </div>
+        )}
+      </AnimatePresence>
+      <QuickView product={quickProduct} onClose={() => setQuickProduct(null)} />
+    </>
   );
 };
 

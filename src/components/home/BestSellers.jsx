@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { ShoppingBag, Eye, Check, ArrowRight } from 'lucide-react';
 import { useCart } from '../../context/CartContext';
 import QuickView from '../QuickView-Premium';
-import { BEST_SELLERS } from '../../data/products';
+import { BEST_SELLERS, getProductCoverImage } from '../../data/products';
 
 const containerVariants = {
   hidden: {},
@@ -38,21 +38,36 @@ const ProductCard = ({ product, onQuickView }) => {
     setTimeout(() => setAdded(false), 2000);
   };
 
+  const openQuickView = () => onQuickView?.(product);
+
+  const handleCardKeyDown = (event) => {
+    if (event.target !== event.currentTarget) return;
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      openQuickView();
+    }
+  };
+
   return (
     <motion.div
       variants={itemVariants}
       whileHover={{ scale: 1.02, y: -5 }}
       transition={{ duration: 0.35, ease: 'easeOut' }}
       className="group cursor-pointer"
+      onClick={openQuickView}
+      onKeyDown={handleCardKeyDown}
+      role="button"
+      tabIndex={0}
+      aria-label={`View ${product.name}`}
     >
       <div className="overflow-hidden rounded-[28px] border border-white/10 bg-white/5 p-3 shadow-[0_24px_80px_rgba(0,0,0,0.35)] backdrop-blur-md">
         <div className="relative mb-5 overflow-hidden rounded-2xl border border-white/10 bg-neutral-900 aspect-[3/4]">
-          <span className="absolute left-3 top-3 z-10 rounded-full border border-white/10 bg-black/45 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.28em] text-amber-300 backdrop-blur-md">
+          <span className="absolute left-2 top-2 z-10 rounded-full border border-white/10 bg-black/45 px-2 py-1 text-[8px] font-semibold uppercase tracking-[0.14em] text-amber-300 backdrop-blur-md sm:left-3 sm:top-3 sm:px-3 sm:text-[10px] sm:tracking-[0.28em]">
             {product.tag}
           </span>
 
           <img
-            src={product.image}
+            src={getProductCoverImage(product)}
             alt={product.name}
             loading="lazy"
             decoding="async"
@@ -61,28 +76,28 @@ const ProductCard = ({ product, onQuickView }) => {
 
           <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-70 transition-opacity duration-300 group-hover:opacity-100" />
 
-          <div className="absolute inset-x-4 bottom-4 flex items-center justify-center gap-3 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 translate-y-4">
+          <div className="absolute inset-x-2 bottom-2 flex translate-y-0 items-center justify-center gap-2 opacity-100 transition-all duration-300 sm:inset-x-3 sm:bottom-3 md:inset-x-4 md:bottom-4 md:gap-3 [@media(hover:hover)]:translate-y-4 [@media(hover:hover)]:opacity-0 [@media(hover:hover)]:group-hover:translate-y-0 [@media(hover:hover)]:group-hover:opacity-100">
             <button
               onClick={handleAdd}
               title={added ? 'Added!' : 'Add to Cart'}
-              className={`flex items-center gap-2 rounded-full border px-4 py-3 text-[11px] font-semibold uppercase tracking-[0.22em] transition-all shadow-lg ${
+              className={`flex items-center gap-1 rounded-full border px-2.5 py-2 text-[9px] font-semibold uppercase tracking-[0.14em] shadow-lg transition-all sm:px-3 sm:py-2.5 sm:text-[10px] md:gap-2 md:px-4 md:py-3 md:text-[11px] md:tracking-[0.22em] ${
                 added
                   ? 'border-emerald-400/30 bg-emerald-500 text-white'
                     : 'border-amber-400/30 bg-[#d6b46a] text-black hover:bg-[#e0c07a]'
               }`}
             >
-              {added ? <Check size={16} /> : <ShoppingBag size={16} />}
+              {added ? <Check className="h-3.5 w-3.5 md:h-4 md:w-4" /> : <ShoppingBag className="h-3.5 w-3.5 md:h-4 md:w-4" />}
               <span>{added ? 'Added' : 'Add'}</span>
             </button>
             <button
               onClick={(e) => {
                 e.stopPropagation();
-                onQuickView(product);
+                openQuickView();
               }}
               title="Quick View"
-              className="rounded-full border border-white/10 bg-black/50 p-3 text-white backdrop-blur-md transition-all hover:bg-amber-400 hover:text-black shadow-lg"
+              className="rounded-full border border-white/10 bg-black/50 p-2 text-white shadow-lg backdrop-blur-md transition-all hover:bg-amber-400 hover:text-black sm:p-2.5 md:p-3"
             >
-              <Eye size={16} />
+              <Eye className="h-3.5 w-3.5 md:h-4 md:w-4" />
             </button>
           </div>
         </div>

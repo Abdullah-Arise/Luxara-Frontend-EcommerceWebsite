@@ -1,4 +1,5 @@
 import React from 'react';
+import founderPhoto from '../../assets/photos/founderpagephoto1.webp';
 
 const FounderNote = () => {
   return (
@@ -10,7 +11,7 @@ const FounderNote = () => {
           <div className="relative">
             <div className="aspect-[4/5] overflow-hidden bg-neutral-900">
               <img
-                src="https://images.unsplash.com/photo-1615655406736-b37c4fabf923?q=80&w=1000&auto=format&fit=crop"
+                src={founderPhoto}
                 alt="Luxara Founder"
                 loading="lazy"
                 decoding="async"
@@ -37,11 +38,11 @@ const FounderNote = () => {
             </p>
 
             <p className="text-neutral-400 leading-relaxed text-[15px]">
-              So we rebuilt. Every piece is now crafted in Stainless Steel 316L — the same grade used in surgical instruments. Coated with PVD gold that bonds permanently to the surface. No fading. No tarnish. No compromise.
+              So we evolved with purpose. Our handmade bead bracelets still carry the craft that started Luxara, and our stainless steel cuff collection adds polished gold and silver options for everyday styling.
             </p>
 
             <p className="text-neutral-400 leading-relaxed text-[15px]">
-              This is jewelry made for Pakistani women who deserve both beauty and durability — without paying imported prices.
+              These are bracelets and cuffs made for Pakistani women who deserve thoughtful design, beautiful finishes, and accessible luxury.
             </p>
 
             <div className="pt-4 border-t border-white/10">

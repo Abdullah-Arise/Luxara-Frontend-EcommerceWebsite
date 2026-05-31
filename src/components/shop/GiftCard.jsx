@@ -1,10 +1,10 @@
 // =============================================
-// GIFT CARD — src/components/shop/GiftCard.jsx
+// CUFF CARD - src/components/shop/GiftCard.jsx
 //
 // YEH KYA HAI:
-// Gift Sets page mein har gift set ka card.
+// Cuff Collection page mein har stainless steel cuff ka card.
 // ProductCard se alag hai kyunki:
-// - "Gift Set" badge hai (kala background, yellow text)
+// - "Steel Cuff" badge hai (kala background, yellow text)
 // - "You save Rs. X" dikhata hai
 // - Savings calculate karta hai
 //
@@ -16,21 +16,23 @@
 // - onQuickView → QuickView modal kholne ka function
 //
 // CHANGE KARNA HO TO:
-// - Badge text → "Gift Set" wali span tag edit karo
+// - Badge text -> "Steel Cuff" wali span tag edit karo
 // - Savings text → "You save" wali span edit karo
 // - Colors → className mein tailwind classes change karo
 // =============================================
 
 import React, { useState } from 'react';
-import { ShoppingBag, Eye, Check, Gift } from 'lucide-react';
+import { ShoppingBag, Eye, Check, Sparkles } from 'lucide-react';
 import { useCart } from '../../context/CartContext';
+import { getProductCoverImage } from '../../data/products';
 
 const GiftCard = ({ product, onQuickView }) => {
   const { addToCart } = useCart();
   const [added, setAdded] = useState(false);
 
   // Cart mein add karna
-  const handleAdd = () => {
+  const handleAdd = (event) => {
+    event.stopPropagation();
     if (!product.inStock) return;
     addToCart(product);
     setAdded(true);
@@ -42,18 +44,35 @@ const GiftCard = ({ product, onQuickView }) => {
     ? Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100)
     : 0;
 
+  const openQuickView = () => onQuickView?.(product);
+
+  const handleCardKeyDown = (event) => {
+    if (event.target !== event.currentTarget) return;
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      openQuickView();
+    }
+  };
+
   return (
-    <div className="group">
+    <div
+      className="group cursor-pointer"
+      onClick={openQuickView}
+      onKeyDown={handleCardKeyDown}
+      role="button"
+      tabIndex={0}
+      aria-label={`View ${product.name}`}
+    >
 
       {/* ── IMAGE AREA ── */}
       <div className="relative overflow-hidden aspect-[3/4] mb-4 bg-neutral-900">
 
-        {/* ── GIFT SET BADGE (top-left) ──
-            Kala background, yellow "Gift Set" text + Gift icon
+        {/* STEEL CUFF BADGE (top-left)
+            Kala background, yellow "Steel Cuff" text + sparkle icon
         */}
         <span className="absolute top-3 left-3 z-10 bg-[#0f0d0b] text-yellow-400 px-2.5 py-1
                          text-[9px] uppercase tracking-widest font-semibold flex items-center gap-1">
-          <Gift size={9} /> Gift Set
+          <Sparkles size={9} /> Steel Cuff
         </span>
 
         {/* ── SAVE BADGE (top-right) ──
@@ -67,7 +86,7 @@ const GiftCard = ({ product, onQuickView }) => {
 
         {/* Product Image */}
         <img
-          src={product.image}
+          src={getProductCoverImage(product)}
           alt={product.name}
           loading="lazy"
           decoding="async"
@@ -75,15 +94,15 @@ const GiftCard = ({ product, onQuickView }) => {
         />
 
         {/* ── HOVER BUTTONS ── */}
-        <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100
-                        transition-all duration-300 flex items-end justify-center pb-5 gap-3">
+        <div className="absolute inset-0 flex items-end justify-center gap-3 bg-black/10 pb-5 opacity-100
+                        transition-all duration-300 [@media(hover:hover)]:opacity-0 [@media(hover:hover)]:group-hover:opacity-100">
 
           {/* Add to Cart */}
           <button
             onClick={handleAdd}
             className={`px-4 py-2.5 text-[10px] uppercase tracking-widest font-semibold
                        transition-all duration-200 flex items-center gap-1.5
-                       transform translate-y-2 group-hover:translate-y-0
+                       translate-y-0 transform [@media(hover:hover)]:translate-y-2 [@media(hover:hover)]:group-hover:translate-y-0
                        ${added
                          ? 'bg-green-500 text-white'
                          : 'bg-[#d6b46a] text-black hover:bg-[#e0c07a]'
@@ -97,9 +116,12 @@ const GiftCard = ({ product, onQuickView }) => {
 
           {/* Quick View */}
           <button
-            onClick={() => onQuickView(product)}
+            onClick={(event) => {
+              event.stopPropagation();
+              openQuickView();
+            }}
             className="bg-black/70 text-neutral-200 p-2.5 hover:bg-amber-400 hover:text-black
-                       transition-all duration-200 transform translate-y-2 group-hover:translate-y-0 delay-75"
+                       translate-y-0 transform transition-all duration-200 delay-75 [@media(hover:hover)]:translate-y-2 [@media(hover:hover)]:group-hover:translate-y-0"
           >
             <Eye size={16} />
           </button>
@@ -110,7 +132,7 @@ const GiftCard = ({ product, onQuickView }) => {
       {/* ── PRODUCT INFO ── */}
       <div>
 
-        {/* Finish (Gold / Silver / Rose Gold) */}
+        {/* Finish (Gold / Silver) */}
         <p className="text-[10px] uppercase tracking-widest text-amber-300 font-medium mb-1">
           {product.finish} Finish
         </p>

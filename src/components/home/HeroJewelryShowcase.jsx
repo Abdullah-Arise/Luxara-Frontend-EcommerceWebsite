@@ -35,7 +35,7 @@ const HeroJewelryShowcase = () => {
   };
 
   return (
-    <section className="relative overflow-hidden bg-neutral-950 px-4 py-14 sm:px-6 sm:py-16 lg:px-8">
+    <section className="relative overflow-hidden bg-neutral-950 px-4 pb-7 pt-0 sm:px-6 sm:py-16 lg:px-8">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(214,180,106,0.10),transparent_44%)]" />
 
       <div className="relative mx-auto max-w-6xl">
@@ -44,7 +44,7 @@ const HeroJewelryShowcase = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
-          className="overflow-hidden rounded-[1.75rem] border border-white/10 bg-black/35 p-4 shadow-[0_34px_120px_rgba(0,0,0,0.48)] backdrop-blur-xl sm:p-6"
+          className="overflow-hidden rounded-[1.25rem] border border-white/10 bg-black/35 p-3 shadow-[0_34px_120px_rgba(0,0,0,0.48)] backdrop-blur-xl sm:rounded-[1.75rem] sm:p-6"
         >
           <motion.div
             onPointerMove={handlePointerMove}
@@ -52,7 +52,7 @@ const HeroJewelryShowcase = () => {
             style={{ rotateX, rotateY, transformPerspective: 1200 }}
             animate={{ y: [0, -8, 0] }}
             transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
-            className="relative mx-auto flex aspect-[2/1] w-full max-w-4xl items-center justify-center overflow-hidden rounded-[1.25rem] border border-white/10 bg-[#050505]"
+            className="relative mx-auto flex aspect-[2/1] w-full max-w-4xl items-center justify-center overflow-hidden rounded-2xl border border-white/10 bg-[#050505] sm:rounded-[1.25rem]"
           >
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(214,180,106,0.24),transparent_56%)]" />
             <div className="absolute left-1/2 top-1/2 h-[72%] w-[78%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-amber-300/12 blur-3xl" />

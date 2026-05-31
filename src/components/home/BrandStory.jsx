@@ -1,11 +1,32 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Play } from 'lucide-react';
+import ourStoryVideo from '../../assets/videos/home page our story video.mp4';
 
 const BrandStory = () => {
+  const sectionRef = useRef(null);
+  const [shouldLoadVideo, setShouldLoadVideo] = useState(false);
+
+  useEffect(() => {
+    const section = sectionRef.current;
+    if (!section || shouldLoadVideo) return undefined;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setShouldLoadVideo(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: '240px 0px' }
+    );
+
+    observer.observe(section);
+    return () => observer.disconnect();
+  }, [shouldLoadVideo]);
+
   return (
-    <section className="relative overflow-hidden bg-neutral-950 py-24 sm:py-28">
+    <section ref={sectionRef} className="relative overflow-hidden bg-neutral-950 py-24 sm:py-28">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.08),transparent_35%),radial-gradient(circle_at_bottom_right,rgba(212,175,55,0.12),transparent_30%)]" />
 
       <motion.div
@@ -24,24 +45,21 @@ const BrandStory = () => {
             whileHover={{ scale: 1.02, y: -5 }}
             className="group relative h-[400px] w-full cursor-pointer overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 shadow-[0_30px_80px_rgba(0,0,0,0.45)] backdrop-blur-md md:h-[500px]"
           >
-            <img
-              src="https://images.unsplash.com/photo-1573408301185-9146fe634ad0?q=80&w=2075&auto=format&fit=crop"
-              alt="Making Process"
-              loading="lazy"
-              decoding="async"
-              className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-            />
+            {shouldLoadVideo && (
+              <video
+                autoPlay
+                loop
+                muted
+                playsInline
+                preload="none"
+                aria-label="Luxara handmade bracelet story"
+                className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+              >
+                <source src={ourStoryVideo} type="video/mp4" />
+              </video>
+            )}
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/25 to-black/10 transition-colors duration-500 group-hover:from-black/75 group-hover:via-black/30 group-hover:to-black/20" />
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.18),transparent_45%)] opacity-60" />
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="relative">
-                <div className="absolute inset-0 rounded-full bg-amber-200/20 blur-xl" />
-                <div className="absolute inset-0 rounded-full bg-amber-200 opacity-20 animate-ping" />
-                <div className="relative flex h-20 w-20 items-center justify-center rounded-full border border-white/30 bg-white/10 backdrop-blur-xl transition-all duration-500 group-hover:bg-amber-400 group-hover:scale-110">
-                  <Play className="ml-1 h-8 w-8 fill-white text-white transition-colors group-hover:fill-black group-hover:text-black" />
-                </div>
-              </div>
-            </div>
           </motion.div>
 
           <motion.div
@@ -60,7 +78,7 @@ const BrandStory = () => {
                 More Than <br /> Just Beads.
               </h2>
               <p className="max-w-xl text-base font-light leading-relaxed text-neutral-400 md:text-lg">
-                Every Luxara piece starts with one question: will this still look beautiful in 6 months? We rebuilt our entire line around that answer — anti-tarnish stainless steel, waterproof finish, and everyday durability.
+                Luxara began with handmade bead bracelets and grew with purpose. Today, our collection brings that handcrafted spirit together with polished gold and silver stainless steel cuffs for everyday styling.
               </p>
             </div>
 
@@ -74,7 +92,7 @@ const BrandStory = () => {
                 </Link>
               </motion.div>
               <div className="rounded-2xl border border-white/10 bg-white/5 px-5 py-4 text-sm text-neutral-400 backdrop-blur-md">
-                Crafted for everyday shine, built for lasting wear.
+                Handmade character, polished cuffs, and everyday elegance.
               </div>
             </div>
           </motion.div>

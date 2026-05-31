@@ -12,7 +12,6 @@ const AboutUs = lazy(() => import('./pages/AboutUs'));
 const Contact = lazy(() => import('./pages/Contact'));
 const FAQPage = lazy(() => import('./pages/FAQPage'));
 const JewelryCare = lazy(() => import('./pages/JewelryCare'));
-const TrackOrder = lazy(() => import('./pages/TrackOrder'));
 const BrandLegacy = lazy(() => import('./pages/BrandLegacy'));
 
 import './App.css';
@@ -33,7 +32,6 @@ function App() {
             <Route path="/contact"       element={<Contact />} />
             <Route path="/faqs"          element={<FAQPage />} />
             <Route path="/jewelry-care"  element={<JewelryCare />} />
-            <Route path="/track-order"   element={<TrackOrder />} />
             <Route path="/our-story"     element={<BrandLegacy />} />
 
             <Route path="*" element={<Home />} />

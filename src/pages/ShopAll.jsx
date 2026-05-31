@@ -25,7 +25,8 @@
 // Agar change karna ho → WHATSAPP_NUMBER constant edit karo (line 28)
 // ============================================================
 
-import React, { useState, useMemo } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer-Premium';
 import AnnouncementBar from '../components/AnnouncementBar-Premium';
@@ -33,13 +34,17 @@ import WhatsAppButton from '../components/WhatsAppButton-Premium';
 import QuickView from '../components/QuickView-Premium';
 import ShopHero from '../components/shop/ShopHero';
 import ShopFilterBar from '../components/shop/ShopFilterBar';
-import RingsAndOthers from '../components/shop/RingsAndOthers';
+import CustomBraceletStudio from '../components/shop/CustomBraceletStudio';
 import ShopBottomCTA from '../components/shop/ShopBottomCTA';
 import ProductCard from '../components/shop/ProductCard';
-import { ALL_PRODUCTS } from '../data/products';
+import { ALL_PRODUCTS, PRODUCT_CATEGORIES } from '../data/products';
 
 
 const ShopAll = () => {
+  const [searchParams] = useSearchParams();
+  const requestedCategory = searchParams.get('category');
+  const requestedSearch = searchParams.get('search');
+
   // ── Filter States ──
   // Har state ek filter ka current value hold karta hai
   const [activeCategory, setActiveCategory] = useState("All");
@@ -47,6 +52,14 @@ const ShopAll = () => {
   const [sortBy,         setSortBy]         = useState("popular");
   const [searchQuery,    setSearchQuery]    = useState("");
   const [quickProduct,   setQuickProduct]   = useState(null);
+  useEffect(() => {
+    setActiveCategory(PRODUCT_CATEGORIES.includes(requestedCategory) ? requestedCategory : "All");
+    setActiveFinish("All");
+  }, [requestedCategory]);
+
+  useEffect(() => {
+    setSearchQuery(requestedSearch || "");
+  }, [requestedSearch]);
 
   // ── FILTERING + SORTING LOGIC ──
   // useMemo: sirf tab recalculate hoga jab koi dependency change ho
@@ -94,9 +107,6 @@ const ShopAll = () => {
 
       {/* 1. Hero Section */}
       <ShopHero />
-
-      {/* 1.5 Rings & Others Featured Section */}
-      <RingsAndOthers onQuickView={setQuickProduct} variant="shop" />
 
       {/* 2. Filter Bar — state aur setters dono pass karo */}
       <ShopFilterBar
@@ -150,6 +160,7 @@ const ShopAll = () => {
       </div>
 
       {/* 4. Bottom CTA — WhatsApp */}
+      <CustomBraceletStudio />
       <ShopBottomCTA />
 
       <Footer />

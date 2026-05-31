@@ -2,37 +2,45 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
+import handmadeCollectionVideo from '../../assets/videos/homepage handmade collection video on the colllection component.mp4';
+import cuffCollectionVideo from '../../assets/videos/home page cuff collection video on the collection component .mp4';
+import goldCuffPhoto from '../../assets/photos/home page photo on goldcuff the collection component .webp';
+import silverCuffPhoto from '../../assets/photos/home page photo on silver cuff the collection component .webp';
 
 const categories = [
   {
     id: 1,
-    title: "Pendants",
-    desc: "Delicate pieces for every neckline.",
-    image: "https://images.unsplash.com/photo-1611085583191-a3b181a88401?q=80&w=2070&auto=format&fit=crop",
-    link: "/shop?category=Pendants",
+    title: "Handmade Bracelets",
+    desc: "Bead bracelets assembled with care.",
+    media: handmadeCollectionVideo,
+    mediaType: "video",
+    link: "/shop?category=Handmade%20Bracelets",
     size: "col-span-1 md:col-span-2"
   },
   {
     id: 2,
-    title: "Earrings",
-    desc: "Hoops, studs & everything in between.",
-    image: "https://images.unsplash.com/photo-1615655406736-b37c4fabf923?q=80&w=2070&auto=format&fit=crop",
-    link: "/shop?category=Earrings",
+    title: "Gold Cuffs",
+    desc: "Polished gold stainless steel cuffs.",
+    media: goldCuffPhoto,
+    mediaType: "image",
+    link: "/shop?category=Gold%20Cuffs",
     size: "col-span-1"
   },
   {
     id: 3,
-    title: "Bracelets",
-    desc: "Stack them. Layer them. Live in them.",
-    image: "https://images.unsplash.com/photo-1579766989932-d812328701e8?q=80&w=2070&auto=format&fit=crop",
-    link: "/shop?category=Bracelets",
+    title: "Silver Cuffs",
+    desc: "Clean silver cuffs for everyday styling.",
+    media: silverCuffPhoto,
+    mediaType: "image",
+    link: "/shop?category=Silver%20Cuffs",
     size: "col-span-1"
   },
   {
     id: 4,
-    title: "Gift Sets",
-    desc: "Everything inside a Luxara gift box.",
-    image: "https://images.unsplash.com/photo-1590548774585-607691a54775?q=80&w=2070&auto=format&fit=crop",
+    title: "Cuff Collection",
+    desc: "Explore every gold and silver cuff.",
+    media: cuffCollectionVideo,
+    mediaType: "video",
     link: "/gift-sets",
     size: "col-span-1 md:col-span-2"
   }
@@ -102,13 +110,27 @@ const Categories = () => {
                 className="group relative block h-[360px] overflow-hidden rounded-[28px] border border-white/10 bg-white/5 shadow-[0_20px_80px_rgba(0,0,0,0.35)] backdrop-blur-md md:h-[420px]"
               >
                 <div className="absolute inset-0">
-                  <img
-                    src={cat.image}
-                    alt={cat.title}
-                    loading="lazy"
-                    decoding="async"
-                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
+                  {cat.mediaType === "video" ? (
+                    <video
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      preload="metadata"
+                      aria-label={cat.title}
+                      className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    >
+                      <source src={cat.media} type="video/mp4" />
+                    </video>
+                  ) : (
+                    <img
+                      src={cat.media}
+                      alt={cat.title}
+                      loading="lazy"
+                      decoding="async"
+                      className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
+                  )}
                 </div>
 
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/10 transition-opacity duration-300 group-hover:from-black/85" />

@@ -1,15 +1,65 @@
-import React, { useState } from 'react';
-import { X, Star, ArrowRight, ShoppingBag, Check, Sparkles } from 'lucide-react';
+import React, { useEffect, useState } from 'react';
+import { X, Star, ArrowRight, ShoppingBag, Check, ChevronLeft, ChevronRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useCart } from '../context/CartContext';
+import { getProductImages } from '../data/products';
 
 const WHATSAPP_NUMBER = "923147253080";
 
 const QuickView = ({ product, onClose }) => {
   const { addToCart } = useCart();
   const [added, setAdded] = useState(false);
+  const [activeImageIndex, setActiveImageIndex] = useState(0);
+  const productImages = getProductImages(product);
+  const hasGallery = productImages.length > 1;
+  const activeImage = productImages[activeImageIndex] ?? product?.image;
+
+  useEffect(() => {
+    if (!product) return undefined;
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape') {
+        setActiveImageIndex(0);
+        onClose();
+      }
+
+      if (!hasGallery) return;
+
+      if (event.key === 'ArrowLeft') {
+        setActiveImageIndex((current) => (current - 1 + productImages.length) % productImages.length);
+      }
+
+      if (event.key === 'ArrowRight') {
+        setActiveImageIndex((current) => (current + 1) % productImages.length);
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [hasGallery, onClose, product, productImages.length]);
 
   if (!product) return null;
+
+  const closeQuickView = () => {
+    setActiveImageIndex(0);
+    onClose();
+  };
+
+  const showPreviousImage = (event) => {
+    event.stopPropagation();
+    setActiveImageIndex((current) => (current - 1 + productImages.length) % productImages.length);
+  };
+
+  const showNextImage = (event) => {
+    event.stopPropagation();
+    setActiveImageIndex((current) => (current + 1) % productImages.length);
+  };
 
   const handleAddToCart = () => {
     addToCart(product);
@@ -22,17 +72,22 @@ const QuickView = ({ product, onClose }) => {
       `Hi Luxara! I want to order:\n\n🛍️ *${product.name}*\n💰 Price: Rs. ${product.price.toLocaleString()}\n✨ Finish: ${product.finish}\n\nPlease confirm availability. Thank you!`
     );
     window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`, '_blank');
+    setActiveImageIndex(0);
     onClose();
   };
 
   const discount = product.originalPrice
     ? Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100)
     : null;
+  const isCuff = product.category === 'Gold Cuffs' || product.category === 'Silver Cuffs';
+  const features = isCuff
+    ? ['Stainless Steel', 'Waterproof', 'Adjustable Fit']
+    : ['Handmade', 'Bead Bracelet', 'Handle Gently'];
 
   return (
     <AnimatePresence>
       {product && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+        <div className="fixed inset-0 z-[110] flex items-center justify-center p-4">
 
           {/* Backdrop */}
           <motion.div
@@ -41,7 +96,7 @@ const QuickView = ({ product, onClose }) => {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
             className="absolute inset-0 bg-black/80 backdrop-blur-md"
-            onClick={onClose}
+            onClick={closeQuickView}
           />
 
           {/* Modal */}
@@ -59,7 +114,8 @@ const QuickView = ({ product, onClose }) => {
             <motion.button
               whileHover={{ scale: 1.1, rotate: 90 }}
               whileTap={{ scale: 0.9 }}
-              onClick={onClose}
+              onClick={closeQuickView}
+              aria-label="Close product details"
               className="absolute top-6 right-6 z-20 bg-white/10 backdrop-blur-md border border-white/10 rounded-full w-10 h-10 flex items-center justify-center text-neutral-400 hover:text-white shadow-lg transition-colors"
             >
               <X size={18} />
@@ -68,18 +124,46 @@ const QuickView = ({ product, onClose }) => {
             <div className="relative grid grid-cols-1 md:grid-cols-2 overflow-y-auto max-h-[90vh]">
 
               {/* Image */}
-              <div className="relative aspect-square bg-black/40 overflow-hidden">
-                <motion.img
-                  initial={{ scale: 1.1, opacity: 0 }}
-                  animate={{ scale: 1, opacity: 1 }}
-                  transition={{ duration: 0.6 }}
-                  src={product.image}
-                  alt={product.name}
-                  className="w-full h-full object-cover"
-                />
+              <div className="relative aspect-[3/4] overflow-hidden bg-black/40 md:aspect-auto md:min-h-full">
+                <AnimatePresence mode="wait" initial={false}>
+                  <motion.img
+                    key={activeImage}
+                    initial={{ scale: 1.04, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    exit={{ scale: 0.98, opacity: 0 }}
+                    transition={{ duration: 0.35, ease: 'easeOut' }}
+                    src={activeImage}
+                    alt={`${product.name} view ${activeImageIndex + 1}`}
+                    className="h-full w-full object-contain"
+                  />
+                </AnimatePresence>
                 
                 {/* Gradient overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+
+                {hasGallery && (
+                  <>
+                    <button
+                      type="button"
+                      onClick={showPreviousImage}
+                      aria-label="Show previous product photo"
+                      className="absolute left-3 top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-white/15 bg-black/45 text-white shadow-lg backdrop-blur-md transition-all hover:border-amber-300/40 hover:bg-amber-400 hover:text-black sm:left-5 sm:h-11 sm:w-11"
+                    >
+                      <ChevronLeft size={20} />
+                    </button>
+                    <button
+                      type="button"
+                      onClick={showNextImage}
+                      aria-label="Show next product photo"
+                      className="absolute right-3 top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-white/15 bg-black/45 text-white shadow-lg backdrop-blur-md transition-all hover:border-amber-300/40 hover:bg-amber-400 hover:text-black sm:right-5 sm:h-11 sm:w-11"
+                    >
+                      <ChevronRight size={20} />
+                    </button>
+                    <div className="absolute bottom-4 left-1/2 z-10 -translate-x-1/2 rounded-full border border-white/10 bg-black/45 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.25em] text-white backdrop-blur-md">
+                      {activeImageIndex + 1} / {productImages.length}
+                    </div>
+                  </>
+                )}
 
                 {discount && (
                   <motion.span
@@ -159,19 +243,21 @@ const QuickView = ({ product, onClose }) => {
                     </div>
                     <div className="flex justify-between text-sm">
                       <span className="text-neutral-500">Material</span>
-                      <span className="text-neutral-300 font-medium">Anti-Tarnish Stainless Steel</span>
+                      <span className="text-neutral-300 font-medium">
+                        {isCuff ? 'Stainless Steel' : 'Handmade Beads'}
+                      </span>
                     </div>
                     <div className="flex justify-between text-sm">
                       <span className="text-neutral-500">Waterproof</span>
-                      <span className="text-emerald-400 font-medium flex items-center gap-1">
-                        <Check size={14} /> Yes
+                      <span className={`${isCuff ? 'text-emerald-400' : 'text-amber-300'} font-medium flex items-center gap-1`}>
+                        <Check size={14} /> {isCuff ? 'Yes' : 'Keep Dry'}
                       </span>
                     </div>
                   </div>
 
                   {/* Features */}
                   <div className="flex flex-wrap gap-2">
-                    {['Anti-Tarnish', 'Hypoallergenic', 'Long-Lasting'].map((feature, idx) => (
+                    {features.map((feature, idx) => (
                       <motion.span
                         key={feature}
                         initial={{ opacity: 0, scale: 0.9 }}

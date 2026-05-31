@@ -16,17 +16,24 @@
 // ============================================================
 
 import React from 'react';
+import pagesHeroVideo from '../../assets/videos/globalvideoforpages.mp4';
 
 const BrandLegacyHero = () => {
   return (
     <div className="relative h-[70vh] bg-[#0f0d0b] flex items-end overflow-hidden">
 
       {/* Background Image — apni photo lagani ho toh yahan src change karo */}
-      <img
-        src="https://images.unsplash.com/photo-1573408301185-9146fe634ad0?q=80&w=2070&auto=format&fit=crop"
-        alt="Luxara Story"
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        preload="metadata"
+        aria-label="Luxara story background video"
         className="absolute inset-0 w-full h-full object-cover opacity-30"
-      />
+      >
+        <source src={pagesHeroVideo} type="video/mp4" />
+      </video>
 
       {/* Dark gradient — neeche se upar tak dark hota hai taake text readable rahe */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />

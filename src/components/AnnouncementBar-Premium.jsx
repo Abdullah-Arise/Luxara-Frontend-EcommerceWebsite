@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const announcements = [
   { icon: <Sparkles size={14} className="text-amber-400" />, text: "Free Shipping above Rs. 2,000" },
-  { icon: "✨", text: "New Anti-Tarnish Collection is live" },
+  { icon: "✨", text: "Gold & Silver Cuff Collection is live" },
   { icon: "💛", text: "Cash on Delivery — All over Pakistan" },
   { icon: "🔄", text: "7-Day Exchange Policy" },
 ];
@@ -36,7 +36,7 @@ const AnnouncementBar = () => {
   const item = announcements[current];
 
   return (
-    <div className="fixed bottom-6 left-6 z-40">
+    <div className="fixed bottom-6 left-6 z-40 hidden sm:block">
       <AnimatePresence mode="wait">
         {visible && (
           <motion.div

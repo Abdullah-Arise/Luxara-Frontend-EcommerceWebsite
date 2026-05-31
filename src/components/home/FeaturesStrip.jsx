@@ -5,18 +5,18 @@ import { Gem, Hammer, Truck, ShieldCheck } from 'lucide-react';
 const features = [
   {
     icon: <Gem size={30} />,
-    title: '100% Real Stones',
-    desc: 'Sourced from authentic mines.',
+    title: 'Handmade Beads',
+    desc: 'Assembled individually with care.',
   },
   {
     icon: <Hammer size={30} />,
-    title: 'Handmade Quality',
-    desc: 'Crafted individually with care.',
+    title: 'Gold & Silver Cuffs',
+    desc: 'Polished stainless steel finishes.',
   },
   {
     icon: <ShieldCheck size={30} />,
-    title: 'Durable Design',
-    desc: 'Strong elastic that lasts.',
+    title: 'Everyday Styling',
+    desc: 'Distinct pieces made to layer.',
   },
   {
     icon: <Truck size={30} />,

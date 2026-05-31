@@ -11,7 +11,7 @@ const reasons = [
   {
     icon: <Sparkles size={22} />,
     title: 'Premium Materials',
-    desc: 'We use carefully selected stones and quality materials to create jewelry that feels special.',
+    desc: 'Our handmade beads and stainless steel cuffs are selected to create pieces that feel special.',
   },
   {
     icon: <ShieldCheck size={22} />,
@@ -64,8 +64,8 @@ const WhyChooseUs = () => {
           </h2>
 
           <p className="mt-5 text-sm leading-7 text-neutral-400 md:text-base">
-            At Luxara, we blend sophistication, quality, and care to create jewelry
-            that feels luxurious for every day and memorable for every moment.
+            At Luxara, we blend sophistication, quality, and care to create bracelets
+            and cuffs that feel luxurious for every day and memorable for every moment.
           </p>
         </div>
 

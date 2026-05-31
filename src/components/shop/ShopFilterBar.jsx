@@ -8,9 +8,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { X, Search, ChevronDown } from 'lucide-react';
+import { ALL_PRODUCTS, PRODUCT_CATEGORIES, PRODUCT_FINISHES } from '../../data/products';
 
-const CATEGORIES = ["All", "Pendants", "Earrings", "Rings", "Bracelets", "Gift Sets"];
-const FINISHES   = ["All", "Gold", "Silver", "Rose Gold"];
+const CATEGORIES = ["All", ...PRODUCT_CATEGORIES];
 const SORT_OPTIONS = [
   { value: "popular",    label: "Most Popular" },
   { value: "newest",     label: "New Arrivals" },
@@ -29,6 +29,14 @@ const ShopFilterBar = ({
   setSearchQuery,
   filteredCount,
 }) => {
+  const availableFinishes = activeCategory === "All"
+    ? PRODUCT_FINISHES
+    : [...new Set(
+      ALL_PRODUCTS
+        .filter(product => product.category === activeCategory)
+        .map(product => product.finish)
+    )];
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
@@ -47,7 +55,10 @@ const ShopFilterBar = ({
           {CATEGORIES.map(cat => (
             <button
               key={cat}
-              onClick={() => setActiveCategory(cat)}
+              onClick={() => {
+                setActiveCategory(cat);
+                setActiveFinish("All");
+              }}
               className={`px-4 py-2 text-[11px] uppercase tracking-widest font-medium
                           rounded-full transition-all duration-300 border
                           ${activeCategory === cat
@@ -86,7 +97,7 @@ const ShopFilterBar = ({
                          text-[11px] uppercase tracking-wider text-neutral-400
                          focus:outline-none focus:border-amber-300/50 cursor-pointer backdrop-blur-md"
             >
-              {FINISHES.map(f => (
+              {["All", ...availableFinishes].map(f => (
                 <option key={f} value={f} className="bg-neutral-900 text-white">
                   {f === "All" ? "All Finishes" : f}
                 </option>

@@ -41,13 +41,15 @@ import BrandTurningPoint  from '../components/brand/BrandTurningPoint';
 import BrandPromise       from '../components/brand/BrandPromise';
 import BrandFounderQuote  from '../components/brand/BrandFounderQuote';
 import BrandLegacyCTA     from '../components/brand/BrandLegacyCTA';
+import chapterOnePhoto    from '../assets/photos/chapter1.webp';
+import chapterTwoPhoto    from '../assets/photos/chapter2.webp';
 
 // ── CHAPTER 1 DATA ──
 // Text change karna ho toh yahan paragraphs array edit karo
 const CHAPTER_1 = {
   heading: "It started with a bead",
   headingItalic: "and a dream.",
-  image: "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?q=80&w=1000&auto=format&fit=crop",
+  image: chapterOnePhoto,
   imageAlt: "The beginning",
   imageLeft: false,  // image right side pe
   paragraphs: [
@@ -61,13 +63,13 @@ const CHAPTER_1 = {
 const CHAPTER_2 = {
   heading: "Rebuilt from scratch.",
   headingItalic: "Zero compromise.",
-  image: "https://images.unsplash.com/photo-1615655406736-b37c4fabf923?q=80&w=1000&auto=format&fit=crop",
+  image: chapterTwoPhoto,
   imageAlt: "New Luxara",
   imageLeft: true,   // image left side pe (Chapter 1 se ulta)
   paragraphs: [
-    "Every single piece in the new Luxara line is built on Stainless Steel 316L — the same grade used in surgical instruments. It doesn't rust. It doesn't tarnish. It doesn't react to your skin.",
-    "On top of that, we apply a PVD (Physical Vapor Deposition) coating — a process that permanently bonds the gold, silver, or rose gold finish to the steel surface at a molecular level. It's not a layer that peels. It's not paint. It's permanent.",
-    "This is jewelry designed for Pakistani women who deserve both beauty and durability — without paying imported prices.",
+    "The Luxara collection now carries two distinct lines: handmade bead bracelets assembled with care, and stainless steel cuffs shaped for polished everyday styling.",
+    "Our cuffs are available in gold and silver finishes, with adjustable open silhouettes that make them easy to wear and easy to layer.",
+    "These are bracelets and cuffs designed for Pakistani women who deserve thoughtful detail, beautiful finishes, and accessible luxury.",
   ],
 };
 

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { ShoppingBag, Menu, X, Search, User } from 'lucide-react';
+import { ShoppingBag, Menu, X, Search } from 'lucide-react';
+import { AnimatePresence, motion } from 'framer-motion';
 import logoImg from '../assets/logo.png';
 import SearchModal from './SearchModal-Premium';
 import CartSidebar from './CartSidebar-Premium';
@@ -10,7 +11,7 @@ const NAV_LINKS = [
   { label: 'Home',         path: '/' },
   { label: 'New Arrivals', path: '/new-arrivals' },
   { label: 'Shop All',     path: '/shop' },
-  { label: 'Gift Sets',    path: '/gift-sets' },
+  { label: 'Cuff Collection', path: '/gift-sets' },
   { label: 'About',        path: '/about' },
 ];
 
@@ -37,38 +38,33 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="fixed inset-x-0 top-4 z-50 px-3 sm:px-5">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className={`grid h-16 grid-cols-[auto_1fr_auto] items-center gap-4 rounded-full border px-4 shadow-[0_18px_60px_rgba(0,0,0,0.35)] backdrop-blur-2xl transition-all duration-500 sm:h-[68px] sm:px-5 ${
+      <nav className="fixed inset-x-0 top-3 z-50 px-3 sm:top-4 sm:px-5">
+        <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: -18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+            className={`flex h-14 items-center justify-between gap-3 rounded-full border px-3 shadow-[0_18px_60px_rgba(0,0,0,0.35)] backdrop-blur-2xl transition-all duration-500 sm:h-[68px] sm:px-5 ${
             isDarkGlass
               ? 'border-white/10 bg-black/70 shadow-[0_22px_70px_rgba(0,0,0,0.6)]'
               : 'border-white/15 bg-white/[0.08]'
-          }`}>
-
-            {/* Mobile Burger */}
-            <div className="flex items-center md:hidden">
-              <button
-                onClick={() => setIsOpen(!isOpen)}
-                className="text-neutral-200 transition-colors hover:text-amber-400"
-              >
-                {isOpen ? <X size={24} /> : <Menu size={24} />}
-              </button>
-            </div>
+          }`}
+          >
 
             {/* Logo */}
-            <div className="flex items-center justify-center md:justify-start">
+            <div className="flex min-w-0 items-center">
               <Link to="/" className="flex items-center gap-3">
-                <div className="h-10 w-10 overflow-hidden rounded-full border border-amber-400/50 bg-black/50 p-0.5">
-                  <img src={logoImg} alt="Luxara" className="h-full w-full object-cover rounded-full" />
+                <div className="h-9 w-9 shrink-0 overflow-hidden rounded-full border border-amber-400/50 bg-black/50 p-0.5 sm:h-10 sm:w-10">
+                  <img src={logoImg} alt="Luxara" className="h-full w-full rounded-full object-cover" />
                 </div>
-                <span className="hidden font-serif text-xl font-bold uppercase tracking-[0.22em] text-neutral-100 sm:inline">
+                <span className="font-serif text-base font-bold uppercase tracking-[0.18em] text-neutral-100 sm:text-xl sm:tracking-[0.22em]">
                   Luxara<span className="text-amber-400">.</span>
                 </span>
               </Link>
             </div>
 
             {/* Desktop Nav */}
-            <div className="hidden items-center justify-center gap-7 md:flex">
+            <div className="hidden flex-1 items-center justify-center gap-7 lg:flex">
               {NAV_LINKS.map((item) => {
                 const isActive = location.pathname === item.path;
                 return (
@@ -87,65 +83,87 @@ const Navbar = () => {
             </div>
 
             {/* Right Icons */}
-            <div className="flex items-center justify-end gap-3 md:gap-4">
+            <div className="flex shrink-0 items-center justify-end gap-1 sm:gap-3 md:gap-4">
               <button
                 onClick={() => setSearchOpen(true)}
                 className="rounded-full p-2 text-neutral-300 transition-colors hover:bg-white/5 hover:text-amber-400"
+                aria-label="Search products"
               >
-                <Search className="w-5 h-5" />
-              </button>
-
-              <button className="hidden rounded-full p-2 text-neutral-300 transition-colors hover:bg-white/5 hover:text-amber-400 sm:block">
-                <User className="w-5 h-5" />
+                <Search className="h-4 w-4 sm:h-5 sm:w-5" />
               </button>
 
               <button
                 onClick={() => setCartOpen(true)}
                 className="relative rounded-full p-2 text-neutral-300 transition-colors hover:bg-white/5 hover:text-amber-400"
+                aria-label="Open cart"
               >
-                <ShoppingBag className="w-5 h-5" />
+                <ShoppingBag className="h-4 w-4 sm:h-5 sm:w-5" />
                 {cartCount > 0 && (
                   <span className="absolute -top-1.5 -right-1.5 text-[10px] font-bold rounded-full h-4 w-4 flex items-center justify-center bg-amber-400 text-black">
                     {cartCount}
                   </span>
                 )}
               </button>
+
+              <button
+                onClick={() => setIsOpen(!isOpen)}
+                className="rounded-full p-2 text-neutral-200 transition-colors hover:bg-white/5 hover:text-amber-400 lg:hidden"
+                aria-label={isOpen ? 'Close menu' : 'Open menu'}
+                aria-expanded={isOpen}
+              >
+                {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+              </button>
             </div>
-          </div>
+          </motion.div>
         </div>
 
         {/* Mobile Menu */}
-        <div className={`mx-auto mt-3 max-w-7xl overflow-hidden rounded-3xl border border-white/10 bg-black/90 shadow-2xl backdrop-blur-2xl transition-all duration-300 md:hidden ${
-          isOpen ? 'max-h-[600px] opacity-100' : 'max-h-0 opacity-0'
-        }`}>
-          <div className="px-4 pt-3 pb-6 space-y-1">
-            {NAV_LINKS.map((item) => (
-              <Link key={item.path} to={item.path}
-                className={`block px-3 py-3.5 text-sm font-medium uppercase tracking-wide border-b border-white/5 transition-colors ${
-                  location.pathname === item.path ? 'text-amber-300' : 'text-neutral-200 hover:text-amber-300'
-                }`}
-              >{item.label}</Link>
-            ))}
-            <div className="pt-2 space-y-1">
-              {[
-                { label: 'Track Order',  path: '/track-order' },
-                { label: 'Contact',      path: '/contact' },
-                { label: 'Jewelry Care', path: '/jewelry-care' },
-                { label: 'FAQs',         path: '/faqs' },
-              ].map((item) => (
-                <Link key={item.path} to={item.path}
-                  className="block px-3 py-3 text-sm text-neutral-500 hover:text-amber-300 transition-colors"
-                >{item.label}</Link>
-              ))}
-            </div>
-            <button
-              onClick={() => { setIsOpen(false); setSearchOpen(true); }}
-              className="w-full mt-2 flex items-center gap-3 px-3 py-3 border border-white/10 text-sm text-neutral-300 hover:border-amber-400/40 transition-colors"
+        <AnimatePresence>
+          {isOpen && (
+            <motion.div
+              initial={{ opacity: 0, y: -10, scale: 0.98 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -10, scale: 0.98 }}
+              transition={{ duration: 0.24, ease: [0.22, 1, 0.36, 1] }}
+              className="mx-auto mt-3 max-h-[calc(100svh-5.5rem)] max-w-7xl overflow-x-hidden overflow-y-auto rounded-3xl border border-white/10 bg-black/90 shadow-2xl backdrop-blur-2xl lg:hidden"
             >
-              <Search size={16} /> Search products...
-            </button>
-          </div>
-        </div>
+              <div className="space-y-1 px-4 pb-6 pt-3">
+                {NAV_LINKS.map((item, index) => (
+                  <motion.div
+                    key={item.path}
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: index * 0.035, duration: 0.22 }}
+                  >
+                    <Link
+                      to={item.path}
+                      className={`block border-b border-white/5 px-3 py-3.5 text-sm font-medium uppercase tracking-wide transition-colors ${
+                        location.pathname === item.path ? 'text-amber-300' : 'text-neutral-200 hover:text-amber-300'
+                      }`}
+                    >
+                      {item.label}
+                    </Link>
+                  </motion.div>
+                ))}
+                <div className="space-y-1 pt-2">
+                  {[
+                    { label: 'Contact', path: '/contact' },
+                    { label: 'Cuff & Bracelet Care', path: '/jewelry-care' },
+                    { label: 'FAQs', path: '/faqs' },
+                  ].map((item) => (
+                    <Link
+                      key={item.path}
+                      to={item.path}
+                      className="block px-3 py-3 text-sm text-neutral-500 transition-colors hover:text-amber-300"
+                    >
+                      {item.label}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </nav>
 
       {!isHomePage && <div className="h-24" />}

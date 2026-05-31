@@ -1,5 +1,5 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
-import { ALL_PRODUCTS, BEST_SELLERS, GIFT_SETS, NEW_ARRIVALS } from "../data/products";
+import { ALL_PRODUCTS, BEST_SELLERS, CUFF_COLLECTION, NEW_ARRIVALS } from "../data/products";
 
 const API_KEY = import.meta.env.VITE_GEMINI_API_KEY;
 const WHATSAPP_NUMBER = "923147253080";
@@ -33,22 +33,22 @@ const siteKnowledge = `
 LUXARA WEBSITE KNOWLEDGE
 
 Brand:
-- Luxara is a luxury jewelry e-commerce store for anti-tarnish stainless steel jewelry.
-- Core promise: waterproof, skin-safe, anti-tarnish, everyday wearable luxury.
-- Materials: Stainless Steel 316L with PVD finish where applicable.
+- Luxara sells handmade bead bracelets and stainless steel cuffs.
+- The cuff collection is available in gold and silver finishes.
+- Handmade bead bracelets are assembled with care and should be treated gently.
+- Stainless steel cuffs are adjustable, waterproof, skin-safe, and anti-tarnish.
 - Style: premium, warm, concise, helpful, polished.
 
 Important routes/pages:
 - Home: / 
 - Shop All: /shop
 - New Arrivals: /new-arrivals
-- Gift Sets: /gift-sets
+- Cuff Collection: /gift-sets
 - About: /about
 - Our Story / Brand Legacy: /our-story
 - Contact: /contact
 - FAQs: /faqs
-- Jewelry Care: /jewelry-care
-- Track Order: /track-order
+- Bracelet & Cuff Care: /jewelry-care
 
 Shopping and order flow:
 - Customers can browse products and add to cart.
@@ -60,17 +60,17 @@ Shopping and order flow:
 - For unavailable/out-of-stock products, tell customers to message on WhatsApp for availability or restock updates.
 
 Care and durability:
-- Jewelry is waterproof and suitable for daily wear.
-- Customers can wear it in shower, gym, pool, beach, and rain.
-- Clean with a soft microfiber cloth.
-- Avoid harsh chemicals, bleach, abrasive cloths, and direct perfume/hairspray on the jewelry.
+- Stainless steel cuffs are waterproof and suitable for daily wear.
+- Handmade bead bracelets should be kept away from excess moisture and handled gently.
+- Clean cuffs with a soft microfiber cloth.
+- Avoid harsh chemicals, bleach, abrasive cloths, and direct perfume/hairspray on the pieces.
 - Store in the Luxara box or a small zip pouch.
-- Guarantee: if color changes within 6 months of normal wear, Luxara replaces it.
+- Cuff guarantee: if a stainless steel cuff finish changes within 6 months of normal wear, Luxara replaces it.
 
 Collections:
 - Best sellers: ${BEST_SELLERS.map((product) => product.name).join(", ")}
 - New arrivals: ${NEW_ARRIVALS.map((product) => product.name).join(", ")}
-- Gift sets: ${GIFT_SETS.map((product) => product.name).join(", ")}
+- Cuff collection: ${CUFF_COLLECTION.map((product) => product.name).join(", ")}
 
 Full product catalog:
 ${productCatalog}
@@ -92,7 +92,7 @@ Rules:
 - Be concise, premium, and helpful. Keep most answers under 5 short sentences.
 - Do not invent products, prices, stock, discounts, delivery promises, or policies.
 - If the customer wants to buy, guide them to add to cart or order on WhatsApp at +${WHATSAPP_NUMBER}.
-- If the customer asks about unrelated topics, politely redirect to Luxara jewelry, orders, care, shipping, or support.
+- If the customer asks about unrelated topics, politely redirect to Luxara bracelets, cuffs, orders, care, shipping, or support.
 - If the customer asks for medical, legal, or financial advice, do not provide professional advice.
 
 ${siteKnowledge}

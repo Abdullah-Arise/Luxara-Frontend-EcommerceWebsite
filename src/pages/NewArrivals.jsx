@@ -27,6 +27,7 @@ import WhatsAppButton from '../components/WhatsAppButton-Premium';
 import QuickView from '../components/QuickView-Premium';
 import ProductCard from '../components/shop/ProductCard'; // ← ab yahan se aa raha hai
 import { NEW_ARRIVALS } from '../data/products';
+import newArrivalsVideo from '../assets/videos/new arrivals page .mp4';
 
 const WHATSAPP_NUMBER = "923147253080";
 
@@ -43,8 +44,21 @@ const NewArrivals = () => {
           Yeh chhota hai isliye yahan likha hai, alag component nahi banaya
           Agar baad mein bada karna ho toh NewArrivalsHero.jsx bana lena
       */}
-      <div className="pt-32 pb-16 bg-neutral-950 border-b border-white/5">
-        <div className="max-w-7xl mx-auto px-6">
+      <div className="relative overflow-hidden border-b border-white/5 bg-neutral-950 pt-32 pb-16">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="metadata"
+          aria-label="Luxara new arrivals background video"
+          className="absolute inset-0 h-full w-full object-cover opacity-45"
+        >
+          <source src={newArrivalsVideo} type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/60 to-black/25" />
+
+        <div className="relative z-10 max-w-7xl mx-auto px-6">
 
           <p className="text-amber-400 text-[10px] uppercase tracking-[0.3em] font-medium mb-3">
             Just Dropped
@@ -55,7 +69,7 @@ const NewArrivals = () => {
           </h1>
 
           <p className="text-neutral-400 text-sm max-w-md leading-relaxed font-light">
-            Fresh pieces, same Luxara promise. Anti-tarnish. Waterproof. Made to be worn every day.
+            Fresh handmade bracelets and polished cuffs, each carrying the distinct Luxara character.
           </p>
 
         </div>
