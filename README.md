@@ -1,4 +1,17 @@
-# React + Vite
+# Luxara Frontend
+
+## Luxara Assistant
+
+The storefront chatbot sends requests through the server-side `/api/chat` function so the
+Gemini API key is not exposed in the browser bundle.
+
+For local development, add `GEMINI_API_KEY` to `.env` and run `npm run dev`.
+
+For a Vercel deployment, add `GEMINI_API_KEY` in Project Settings -> Environment Variables
+for Production and Preview, then redeploy. Existing deployments using
+`VITE_GEMINI_API_KEY` remain supported temporarily by the server function.
+
+## React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
